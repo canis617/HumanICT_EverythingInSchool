@@ -7,7 +7,11 @@ public class Main {
 	public static void main(String[] args) {
 
 		//start UI
-		Login startLogin = new Login();
+		//Login startLogin = new Login();
+		
+		Graph g = new Graph();
+		
+		
 	}
 
 }
