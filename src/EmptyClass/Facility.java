@@ -86,14 +86,14 @@ public class Facility { // vertex
 		f = this;
 		
 		while(true){
-			if(f.getName() == start){
+			if(f.getName().equals(start)){
 				break;
 			}else{
 				f = f.next;
 			}
 			
-			if(f.getName() == "tail"){
-				System.out.println("fail to find start Facility(vertex)");
+			if(f.getName().equals("tail")){
+				System.out.println("fail to find start Facility(vertex) ");
 				break;
 			}
 		}
@@ -109,17 +109,18 @@ public class Facility { // vertex
 			}
 		}
 		
+		
+		
 		Facility t = new Facility();
 		t = this;
-		
 		while(true){
-			if(t.getName() == end){
+			if(t.getName().equals(end)){
 				break;
 			}else{
 				t = t.next;
 			}
 			
-			if(t.getName() == "tail"){
+			if(t.getName().equals("tail")){
 				System.out.println("fail to find start Facility(vertex)");
 				break;
 			}
