@@ -5,7 +5,8 @@ public class Facility { // vertex
 	private String name;
 	private Facility next;
 	private Edge edgehead;
-	
+	private Edge uphead;
+	private Edge downhead;
 	/////
 	public Facility() {
 		
@@ -14,6 +15,8 @@ public class Facility { // vertex
 		this.name = name;
 		this.next = null;
 		this.edgehead = new Edge(name);
+		this.uphead = new Edge(name);
+		this.downhead = new Edge(name);
 	}
 
 	public class Edge{
