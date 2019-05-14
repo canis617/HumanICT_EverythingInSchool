@@ -1,5 +1,11 @@
 package EmptyClass;
 
+/** File Name : ClassInfoDB.java
+ *
+ *
+ *
+ * */
+
 import java.security.Key;
 import java.sql.*;
 import java.util.*;

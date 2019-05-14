@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db3f6633-044d-48ca-8d7f-e74dab799d45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -30,17 +31,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="142" column="56" lean-forward="true" selection-start-line="142" selection-start-column="56" selection-end-line="142" selection-end-column="56" />
+            <state relative-caret-position="76">
+              <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="6" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2760#2761#0" expanded="true" />
-                <element signature="e#3430#3431#0" expanded="true" />
-                <element signature="e#3461#3462#0" expanded="true" />
-                <element signature="e#3494#3495#0" expanded="true" />
-                <element signature="e#3526#3527#0" expanded="true" />
-                <element signature="e#3559#3560#0" expanded="true" />
-                <element signature="e#3590#3591#0" expanded="true" />
+                <element signature="e#2737#2738#0" expanded="true" />
+                <element signature="e#2766#2767#0" expanded="true" />
+                <element signature="e#2799#2800#0" expanded="true" />
+                <element signature="e#2830#2831#0" expanded="true" />
+                <element signature="e#2863#2864#0" expanded="true" />
+                <element signature="e#2895#2896#0" expanded="true" />
+                <element signature="e#2928#2929#0" expanded="true" />
+                <element signature="e#2959#2960#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,6 +145,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-8.0.16.jar!/" />
@@ -194,12 +197,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1557844725814</updated>
-      <workItem from="1557844728560" duration="7697000" />
+      <workItem from="1557844728560" duration="8008000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7697000" />
+    <option name="totallyTimeSpent" value="8008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="463" y="0" width="1080" height="831" extended-state="0" />
@@ -216,11 +219,11 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3295129" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3295129" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3295129" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3295129" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -249,17 +252,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="142" column="56" lean-forward="true" selection-start-line="142" selection-start-column="56" selection-end-line="142" selection-end-column="56" />
+        <state relative-caret-position="76">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="6" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2760#2761#0" expanded="true" />
-            <element signature="e#3430#3431#0" expanded="true" />
-            <element signature="e#3461#3462#0" expanded="true" />
-            <element signature="e#3494#3495#0" expanded="true" />
-            <element signature="e#3526#3527#0" expanded="true" />
-            <element signature="e#3559#3560#0" expanded="true" />
-            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#2737#2738#0" expanded="true" />
+            <element signature="e#2766#2767#0" expanded="true" />
+            <element signature="e#2799#2800#0" expanded="true" />
+            <element signature="e#2830#2831#0" expanded="true" />
+            <element signature="e#2863#2864#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
+            <element signature="e#2928#2929#0" expanded="true" />
+            <element signature="e#2959#2960#0" expanded="true" />
           </folding>
         </state>
       </provider>
