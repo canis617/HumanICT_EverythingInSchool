@@ -12,8 +12,11 @@ public class Main {
 		
 		Graph g = new Graph();
 		g.add_floor();
-		g.print_all_floornum();
+		//g.print_all_floornum();
 
+		FindPath fp = new FindPath(g);
+		fp.algorithm_in_a_floor("7c729", "7c706");
+		
 	}
 
 }
