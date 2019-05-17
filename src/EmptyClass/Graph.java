@@ -80,28 +80,28 @@ public class Graph{
 		String floor7edge = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\7edge.txt";
 		floor_7.read_floor_vertex(floor7vertex, floor_7.tail);
 		floor_7.read_floor_edge(floor7edge, floor_7.head);
-		System.out.println(floor_7.get_floor_num()+"floor vertex, edge complete!");
+		//System.out.println(floor_7.get_floor_num()+"floor vertex, edge complete!");
 		connect_floorlist(floor_7);
 		//floor_7.head.print_all_vertex();
 		
 		Floor floor_6 = new Floor("6");
 		String floor6vertex = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\6facility.txt";
 		floor_6.read_floor_vertex(floor6vertex, floor_6.tail);
-		System.out.println(floor_6.get_floor_num()+"floor vertex complete!");
+		//System.out.println(floor_6.get_floor_num()+"floor vertex complete!");
 		connect_floorlist(floor_6);
 		//floor_6.head.print_all_vertex();
 		
 		Floor floor_5 = new Floor("5");
 		String floor5vertex = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\5facility.txt";
 		floor_5.read_floor_vertex(floor5vertex, floor_5.tail);
-		System.out.println(floor_5.get_floor_num()+"floor vertex complete!");
+		//System.out.println(floor_5.get_floor_num()+"floor vertex complete!");
 		connect_floorlist(floor_5);
 		//floor_5.head.print_all_vertex();
 		
 		Floor floor_B1 = new Floor("B1");
 		String floorB1vertex = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\B1facility.txt";
 		floor_B1.read_floor_vertex(floorB1vertex, floor_B1.tail);
-		System.out.println(floor_B1.get_floor_num()+"floor vertex complete!");
+		//System.out.println(floor_B1.get_floor_num()+"floor vertex complete!");
 		connect_floorlist(floor_B1);
 		//floor_B1.head.print_all_vertex();
 	}
