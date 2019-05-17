@@ -210,8 +210,7 @@ public class ClassInfoDB {
     }
 
     public void PrintListMap(List<Map> tempList){
-
-
+        Map<String, String> current = tempList.get(0);
         for(String key : current.keySet()){
             String value = current.get(key);
             if(key == "className"){
@@ -222,7 +221,6 @@ public class ClassInfoDB {
             }
         }
         System.out.println();
-
         for(int i=0; i<tempList.size();i++){
             current = tempList.get(i);
             for(String key : current.keySet()){
