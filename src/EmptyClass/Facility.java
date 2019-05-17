@@ -3,9 +3,10 @@ package EmptyClass;
 //facility
 public class Facility { // vertex
 	private String name;
-	private Facility next;
-	private Edge edgehead;
-	
+	public Facility next;
+	public Edge edgehead;
+	private Edge uphead;
+	private Edge downhead;
 	/////
 	public Facility() {
 		
@@ -14,18 +15,19 @@ public class Facility { // vertex
 		this.name = name;
 		this.next = null;
 		this.edgehead = new Edge(name);
+		this.uphead = new Edge(name);
+		this.downhead = new Edge(name);
 	}
 
 	public class Edge{
 		private String start;
 		private String end;
 		private int time_weight;
-		private Edge next;
+		public Edge next;
 		
 		/////
 		public Edge(){
 
-			
 		}
 		//for edgehead in Facility
 		public Edge(String name){
@@ -43,6 +45,18 @@ public class Facility { // vertex
 			this.next = null;
 		}
 		
+		public String get_edge_start() {
+			return start;
+		}
+		
+		public String get_edge_end() {
+			return end;
+		}
+		
+		public int get_time_weight() {
+			return this.time_weight;
+		}
+		
 	}
 	
 	//connect Facility head, tail
@@ -50,6 +64,24 @@ public class Facility { // vertex
 		this.next = tail;
 		tail.next = this;
 	}
+	
+	public Facility search_facility(String name) {
+		Facility f = this;
+		
+		while(true) {
+			if(f.getName().equals(name)) {
+				return f;
+			}else {
+				f = f.next;
+			}
+			if(f.getName().equals("tail")) {
+				System.out.println("Error : cannot find " + name + " facility");
+				break;
+			}
+		}
+		return f;
+	}
+	
 	
 	//add Facility at last order (tail.addFacility("name"))
 	public void addFacility(String name){
@@ -86,14 +118,14 @@ public class Facility { // vertex
 		f = this;
 		
 		while(true){
-			if(f.getName() == start){
+			if(f.getName().equals(start)){
 				break;
 			}else{
 				f = f.next;
 			}
 			
-			if(f.getName() == "tail"){
-				System.out.println("fail to find start Facility(vertex)");
+			if(f.getName().equals("tail")){
+				System.out.println("fail to find start Facility(vertex) ");
 				break;
 			}
 		}
@@ -109,17 +141,18 @@ public class Facility { // vertex
 			}
 		}
 		
+		
+		
 		Facility t = new Facility();
 		t = this;
-		
 		while(true){
-			if(t.getName() == end){
+			if(t.getName().equals(end)){
 				break;
 			}else{
 				t = t.next;
 			}
 			
-			if(t.getName() == "tail"){
+			if(t.getName().equals("tail")){
 				System.out.println("fail to find start Facility(vertex)");
 				break;
 			}
