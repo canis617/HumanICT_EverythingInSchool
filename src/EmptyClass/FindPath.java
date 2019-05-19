@@ -6,16 +6,18 @@ import java.util.Stack;
 
 public class FindPath {
 	Graph graph310;
-	Dijkstra subGraph;
 	
 	public FindPath() {
 		graph310=null;
 	}
-	
+
+	//전체 graph받아서 초기화
 	public FindPath(Graph g) {
 		this.graph310 = g;
 	}
-	
+
+	//find path 호출부분
+	//Dijkstra : subgraph 생성후 결과 path를 stack으로 저장해서 반환해줌. 이를 출력
 	public void find_path(String start, String end){
 		//get floor
 		String start_floor = start.substring(0,1);
@@ -45,7 +47,7 @@ public class FindPath {
 			}
 		}
 
-		//return result
+		//return result : stack<Edge>
 		for(int i = 0; !result.empty();i++){
 			Edge tempEdge = result.pop();
 			System.out.println(tempEdge.get_edge_start()+" -> "+tempEdge.get_edge_end()+" = "+tempEdge.get_time_weight());

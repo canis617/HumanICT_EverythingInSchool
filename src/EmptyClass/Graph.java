@@ -12,12 +12,14 @@ public class Graph {
 		this.floortail = null;
 	}
 
+	//floor 추가
 	public void add_floor(String floor_name) throws IOException {
 		Floor floor = new Floor(floor_name);
 		try {
 			//one floor declaration like this
 			String floorvertex = "data/" + floor_name + "facility.txt";
 			String flooredge = "data/" + floor_name + "edge.txt";
+			//file read
 			floor.read_floor_vertex(floorvertex);
 			floor.read_floor_edge(flooredge);
 		} catch (Exception e) {
@@ -58,6 +60,7 @@ public class Graph {
 			}
 		}
 	*/
+	//name에 해당되는 floor 반환
 	public Floor getFloor(String floor) {
 		Floor temp = floorhead;
 		if (temp.get_floor_num().equals(floor)) {
@@ -73,7 +76,4 @@ public class Graph {
 		return null;
 	}
 
-	public int compareFloor(String start, String end) {
-		return floorhead.compareFloor(start, end);
-	}
 }

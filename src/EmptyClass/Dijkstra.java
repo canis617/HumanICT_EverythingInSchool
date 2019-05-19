@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Stack;
 
+//다익스트라 자료구조 = 서브그래프, 다익스트라 구하기용
 class Dijkstra {
     Facility vertex;
     int dist;
@@ -13,6 +14,7 @@ class Dijkstra {
     boolean visited;
     Dijkstra next;
 
+    //초기화
     public Dijkstra() {
         this.vertex = null;
         dist = 1000000; // MAX
@@ -20,6 +22,7 @@ class Dijkstra {
         visited = false;
         next = null;
     }
+    //1개 vertex로 초기화
     public Dijkstra(Facility vertex) {
         this.vertex = vertex;
         dist = 1000000; // MAX
@@ -27,6 +30,7 @@ class Dijkstra {
         visited = false;
         next = null;
     }
+    //vertex 추가
     public boolean addVertex(Facility vertex){
         if(this.vertex == null){
             this.vertex = vertex;
@@ -41,6 +45,7 @@ class Dijkstra {
             return true;
         }
     }
+    //floor 추가
     public boolean addFloor(Floor floor){
         if(floor == null){
             return false;
@@ -55,6 +60,7 @@ class Dijkstra {
         return true;
     }
 
+    //다익스트라 알고리즘에 필요한 변수 초기화
     public void resetDijkstra(){
         Dijkstra temp = this;
         while(temp != null){
@@ -64,6 +70,8 @@ class Dijkstra {
             temp = temp.next;
         }
     }
+
+    //start vertex 설정 - 다익스트라 알고리즘 실행 전 초기화 개념
     public boolean setStartvertex(String name){
         resetDijkstra();
         Dijkstra temp = this;
@@ -79,6 +87,7 @@ class Dijkstra {
         return false;
     }
 
+    //다익스트라 알고리즘
     public boolean runDijkstra(){
         Dijkstra temp;
         Dijkstra minNode = minDist();
@@ -107,6 +116,7 @@ class Dijkstra {
         return true;
     }
 
+    //최소 거리 vertex 골라서 return
     public Dijkstra minDist() {
         Dijkstra temp = this;
         Dijkstra min = new Dijkstra();
@@ -121,6 +131,8 @@ class Dijkstra {
         }
         return null;
     }
+
+    //dijstra 함수 호출부분 결과는 stack으로 하여 return
     public Stack<Edge> findPathStack(String start, String end){
 
         setStartvertex(start);
@@ -155,6 +167,7 @@ class Dijkstra {
         return null;
     }
 
+    //unit test
     public static void main(String[] args) {
         Graph g = new Graph();
         try {

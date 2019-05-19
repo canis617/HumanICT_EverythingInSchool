@@ -11,6 +11,7 @@ public class Facility { // vertex
 	public Facility() {
 		
 	}
+	//name으로 초기화
 	public Facility(String name) {
 		this.name = name;
 		this.next = this;
@@ -20,7 +21,7 @@ public class Facility { // vertex
 	}
 
 
-	
+	//facility name으로 찾아서 반환
 	public Facility search_facility(String name) {
 		Facility f = this;
 		if(f.getName().equals(name)) {
@@ -45,7 +46,8 @@ public class Facility { // vertex
 
 	
 	//add Edge start to end in start Facility  (head.addEdge())
-	//option : 0
+	//option : 0 : 평행노드 / 1 : uphead 노드 / 2 : downhead 노드
+	//현재 option 0만 제대로 작동 1, 2는 미구현
 	public void addEdge(String end, int time_weight, int option){
 		if(end == null || time_weight<0 ||option <0 || option >2){
 			throw new IllegalArgumentException("add Edge argument error");
@@ -65,6 +67,7 @@ public class Facility { // vertex
 		}
 	}
 
+	//add edge (vertex는 이미 해당 클래스)
 	public Edge addEdge(Edge edge, Edge head){
 		Edge temp = head;
 		if(temp == null){

@@ -21,6 +21,7 @@ public class Floor{
         this.next = this;
     }
 
+    //vertex파일 읽어서 저장
     public void read_floor_vertex(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line = null;
@@ -29,6 +30,7 @@ public class Floor{
         }
         br.close();
     }
+    //edge 파일 읽어서 저장
     public void read_floor_edge(String filename) throws IOException {
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -47,6 +49,7 @@ public class Floor{
             System.out.println(e.getMessage());
         }
     }
+    //facility 추가
     public boolean addFacility(String name){
         if(name == null){
             throw new IllegalArgumentException("name is null");
@@ -65,6 +68,7 @@ public class Floor{
         return true;
     }
 
+    //edge추가 start vertex 찾음 -> edge 추가
     public boolean addEdge(String start, String end, int time){
         if(start == null || end ==null || time<0){
             throw new IllegalArgumentException("add edge argument error");
@@ -108,6 +112,7 @@ public class Floor{
 
     }
 
+    //floor name으로 비교
     //same : 0 / start > end : 1 / start < end : -1
     public int compareFloor(String start, String end){
         char start_floor = start.charAt(0);

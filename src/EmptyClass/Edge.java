@@ -6,7 +6,6 @@ public class Edge{
     private int time_weight;
     public Edge next;
 
-    /////
     public Edge(){
     }
     //for edgehead in Facility
