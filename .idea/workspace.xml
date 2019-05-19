@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db3f6633-044d-48ca-8d7f-e74dab799d45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/B4edge.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/floorindex.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EmptyClass/Dijkstra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EmptyClass/Edge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EmptyClass/Floor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_16.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/1edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/1edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/2edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/2edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/3edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/3edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/4edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/4edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/5edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/5edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/6edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/6edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/8edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/8edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/9edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/9edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/B1edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/B1edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/B2edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/B2edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/B3edge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/B3edge.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/B4facility.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/B4facility.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/ClassInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/ClassInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/Facility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/FindPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/FindPath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/up_floor.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/up_floor.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -76,7 +51,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EmptyClass/Dijkstra.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="188">
@@ -145,9 +120,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/up_floor.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -230,6 +209,7 @@
         <option value="$PROJECT_DIR$/src/EmptyClass/Dijkstra.java" />
         <option value="$PROJECT_DIR$/src/EmptyClass/Main.java" />
         <option value="$PROJECT_DIR$/src/EmptyClass/FindPath.java" />
+        <option value="$PROJECT_DIR$/data/up_floor.txt" />
       </list>
     </option>
   </component>
@@ -408,7 +388,7 @@
       <workItem from="1557978931116" duration="12508000" />
       <workItem from="1558075315978" duration="9329000" />
       <workItem from="1558176385348" duration="13654000" />
-      <workItem from="1558240018022" duration="17333000" />
+      <workItem from="1558240018022" duration="17592000" />
     </task>
     <task id="LOCAL-00001" summary="project utf-8 setting">
       <created>1557980407563</created>
@@ -421,7 +401,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63318000" />
+    <option name="totallyTimeSpent" value="63577000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -434,9 +414,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="0" width="1496" height="832" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23259053" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23259053" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -453,7 +432,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4990196" weight="0.32904148" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49932885" visible="true" weight="0.32331902" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49932885" visible="true" weight="0.32331902" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010453" side_tool="true" weight="0.3295129" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32474965" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -776,17 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EmptyClass/Dijkstra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="126" column="20" lean-forward="true" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3444#3450#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -862,7 +830,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/up_floor.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EmptyClass/Dijkstra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="126" column="20" lean-forward="true" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3444#3450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
