@@ -43,8 +43,6 @@ public class Facility { // vertex
       return String.valueOf(this.name);
 	}
 	
-
-	
 	//add Edge start to end in start Facility  (head.addEdge())
 	//option : 0 : 평행노드 / 1 : uphead 노드 / 2 : downhead 노드
 	//현재 option 0만 제대로 작동 1, 2는 미구현
@@ -53,6 +51,7 @@ public class Facility { // vertex
 			throw new IllegalArgumentException("add Edge argument error");
 		}
 		Edge edge = new Edge(name, end, time_weight);
+		
 		//default
 		if(option == 0){
 			edgehead = addEdge(edge, edgehead);
@@ -79,6 +78,7 @@ public class Facility { // vertex
 			}
 			temp.next = edge;
 		}
+		
 		return head;
 	}
 
@@ -91,6 +91,7 @@ public class Facility { // vertex
 		}
 		while(temp != null){
 			temp.PrintEdge();
+			temp = temp.next;
 		}
 	}
 

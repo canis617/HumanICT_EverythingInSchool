@@ -32,7 +32,7 @@ public class Main {
 		//g.print_all_floornum();
 
 		FindPath fp = new FindPath(g);
-		fp.find_path("7c701", "7c730");
+		fp.find_path("AcB101", "As1");
 		//fp.algorithm_in_a_floor("7c729", "7c706");
 		
 	}

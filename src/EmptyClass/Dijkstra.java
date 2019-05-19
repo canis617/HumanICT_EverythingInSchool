@@ -3,7 +3,9 @@ package EmptyClass;
 //to store facility & weight
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Stack;
 
 //다익스트라 자료구조 = 서브그래프, 다익스트라 구하기용
@@ -59,7 +61,6 @@ class Dijkstra {
         }
         return true;
     }
-
     //다익스트라 알고리즘에 필요한 변수 초기화
     public void resetDijkstra(){
         Dijkstra temp = this;
@@ -168,7 +169,7 @@ class Dijkstra {
     }
 
     //unit test
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Graph g = new Graph();
         try {
             g.add_floor("7");

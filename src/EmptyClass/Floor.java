@@ -140,4 +140,19 @@ public class Floor{
             }
         }
     }
+    // name에 해당되는 facility 반환
+  	public Facility getFacility(String name) {
+  		Facility temp = head;
+  		if (temp.getName().equals(name)) {
+  			return temp;
+  		}
+  		temp = temp.next;
+  		while (temp != head) {
+  			if (temp.getName().equals(name)) {
+  				return temp;
+  			}
+  			temp = temp.next;
+  		}
+  		return null;
+  	}
 }
