@@ -12,5 +12,7 @@ Dc학생식당
 De1
 Ds1
 Dt1
+Di1
+Di2
 Do1
 Do2

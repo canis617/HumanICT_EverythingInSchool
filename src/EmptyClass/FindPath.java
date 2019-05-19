@@ -1,89 +1,73 @@
 package EmptyClass;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class FindPath {
 	Graph graph310;
-	final int MAX = 1000;
+	Dijkstra subGraph;
 	
 	public FindPath() {
-		
+		graph310=null;
 	}
 	
 	public FindPath(Graph g) {
 		this.graph310 = g;
 	}
 	
-	//to store facility & weight
-	class classArray{
-		String name;
-		int weight;
-		
-		public classArray() {
-			
+	public void find_path(String start, String end){
+		//get floor
+		String start_floor = start.substring(0,1);
+		String end_floor = end.substring(0,1);
+
+		Floor temp = new Floor();
+		Dijkstra subGraph = new Dijkstra();
+		Stack<Edge> result = null;
+
+		int compare = temp.compareFloor(start_floor,end_floor);
+		if (compare == 0){
+			subGraph.addFloor(graph310.getFloor(start_floor));
+			result = subGraph.findPathStack(start, end);
 		}
-		public classArray(String name, int weight) {
-			this.name = name;
-			this.weight = weight;
+		else {
+			//add two floor
+			subGraph.addFloor(graph310.getFloor(start_floor));
+			subGraph.addFloor(graph310.getFloor(end_floor));
+			//start is up, end is down
+			if(compare > 0){
+				//get two floor and only start->end down edge
+			}
+			//start is down, end is up
+			else {
+				//get two floor and only start->end up edge
+
+			}
 		}
-		public String getname() {
-			return this.name;
-		}
-		public int getweight() {
-			return this.weight;
-		}
-		public void setweight(int weight) {
-			this.weight = weight;
-		}
-		
-	}
-	
-	//to trace facility & path
-	class pathArray{
-		String name;
-		String path;
-		
-		public pathArray() {
-			
-		}
-		public pathArray(String name, String path) {
-			this.name = name;
-			this.path = path;
-		}
-		public String getname() {
-			return this.name;
-		}
-		public String getpath() {
-			return this.path;
-		}
-		public void setname(String name) {
-			this.name = name;
-		}
-		public void setpath(String path) {
-			this.path = path;
+
+		//return result
+		for(int i = 0; !result.empty();i++){
+			Edge tempEdge = result.pop();
+			System.out.println(tempEdge.get_edge_start()+" -> "+tempEdge.get_edge_end()+" = "+tempEdge.get_time_weight());
 		}
 	}
-	
-	
-	public void algorithm_in_a_floor(String start, String end) {
+/*
+	public void algorithm_in_a_floor(String start, String end, String floor_index) {
 		Graph.Floor afloor = graph310.floorhead;
 		System.out.println("in a algorithm");
 		System.out.println("start : " + start + "  end : " + end);
-		
-		
+
 		while(true) {
 			afloor = afloor.next;
-			if(afloor.get_floor_num().equals("7"))
+			if(afloor.get_floor_num().equals(floor_index))
 				break;
 		}
 		/////f = floor7
-		System.out.println("floor_num : " + afloor.get_floor_num());
-		
+		System.out.println("floor_num : " + floor_index);
 		
 		ArrayList<classArray> list = new ArrayList<>();
 		ArrayList<pathArray> path = new ArrayList<>();
 		ArrayList<String> visited = new ArrayList<>();
-
 		
 		///initiallize arraylist(store weight to MAX except start point)
 		Facility afacility = afloor.head;
@@ -149,7 +133,6 @@ public class FindPath {
 	
 	//print start to All destination in a floor
 	private void print_all_weight(ArrayList<classArray> list) {
-		
 		for(int i=0 ; i<list.size() ; i++) {
 			System.out.println(list.get(i).getname() + " : " + list.get(i).getweight());
 		}
@@ -165,7 +148,6 @@ public class FindPath {
 			set_pathArray(path, start, end);
 			//System.out.println(end + " value change to " + return_time_weight(list, end));
 		}
-		
 	}
 	
 	//set_pathArray in compare_weight();
@@ -242,5 +224,5 @@ public class FindPath {
 		return false;
 	}
 	
-	
+	*/
 }
