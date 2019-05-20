@@ -3,7 +3,6 @@ package EmptyClass;
 import java.io.*;
 
 public class Main {
-
 	//main function
 	public static void main(String[] args) throws IOException {
 
@@ -31,7 +30,7 @@ public class Main {
 		}
 		
 		FindPath fp = new FindPath(g);
-		fp.find_path("AcB101", "8s3");
+		fp.find_path("Dc∆Ì¿«¡°", "7c720");
 		
 	}
 

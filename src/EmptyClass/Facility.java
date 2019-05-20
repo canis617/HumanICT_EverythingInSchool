@@ -55,6 +55,7 @@ public class Facility { // vertex
 		if(option == 0){
 			edgehead = addEdge(edge, edgehead);
 		}
+		
 //		//uphead
 //		if(option == 1){
 //			uphead = addEdge(edge, uphead);
@@ -63,6 +64,7 @@ public class Facility { // vertex
 //		if(option == 2){
 //			downhead = addEdge(edge, downhead);
 //		}
+		
 	}
 
 	//add edge (vertex는 이미 해당 클래스)
@@ -94,7 +96,4 @@ public class Facility { // vertex
 		}
 	}
 
-
-
-	
 }

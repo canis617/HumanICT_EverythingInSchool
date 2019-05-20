@@ -1,6 +1,5 @@
 package EmptyClass;
 
-import java.awt.*;
 import java.io.*;
 
 public class Graph {
