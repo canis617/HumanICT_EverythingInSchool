@@ -109,7 +109,6 @@ public class Floor{
         while(temp!=null){
             temp.print_all_vertex();
         }
-
     }
 
     //floor name으로 비교
@@ -140,6 +139,7 @@ public class Floor{
             }
         }
     }
+    
     // name에 해당되는 facility 반환
   	public Facility getFacility(String name) {
   		Facility temp = head;

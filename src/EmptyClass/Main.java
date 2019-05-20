@@ -29,11 +29,9 @@ public class Main {
 		for(int i=0; i<floorList.length;i++){
 			g.add_floor(floorList[i]);
 		}
-		//g.print_all_floornum();
-
+		
 		FindPath fp = new FindPath(g);
-		fp.find_path("AcB101", "As1");
-		//fp.algorithm_in_a_floor("7c729", "7c706");
+		fp.find_path("AcB101", "8s3");
 		
 	}
 

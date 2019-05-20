@@ -31,9 +31,7 @@ public class FindPath {
 		int compare = temp.compareFloor(start_floor,end_floor);
 		if (compare == 0){
 			subGraph.addFloor(graph310.getFloor(start_floor));
-			///////////주석 사이에서 오류
 			result = subGraph.findPathStack(start, end);
-			///////////
 		}
 		else {
 			//add two floor
@@ -42,7 +40,6 @@ public class FindPath {
 			
 			//start is up, end is down
 			if(compare > 0){
-				System.out.println("in findpath");
 				//get two floor and only start->end down edge
 				subGraph.addFloor(graph310.add_down_floor(start_floor, end_floor));
 				result = subGraph.findPathStack(start, end);
@@ -50,7 +47,8 @@ public class FindPath {
 			//start is down, end is up
 			else {
 				//get two floor and only start->end up edge
-
+				subGraph.addFloor(graph310.add_up_floor(start_floor, end_floor));
+				result = subGraph.findPathStack(start, end);
 			}
 		}
 

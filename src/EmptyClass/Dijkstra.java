@@ -143,7 +143,7 @@ class Dijkstra {
         Stack<Edge> result = new Stack<Edge>();
         Edge tempEdge= null;
         Dijkstra temp = this;
-
+              
         //start == end
         if(start.equals(end)){
             return null;
@@ -169,17 +169,17 @@ class Dijkstra {
     }
 
     //unit test
-    public static void main(String[] args) throws IOException {
-        Graph g = new Graph();
-        try {
-            g.add_floor("7");
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-
-        FindPath findpath = new FindPath(g);
-
-        findpath.find_path("7c726", "7c706");
-
-    }
+//    public static void main(String[] args) throws IOException {
+//        Graph g = new Graph();
+//        try {
+//            g.add_floor("7");
+//        } catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//
+//        FindPath findpath = new FindPath(g);
+//
+//        findpath.find_path("7c726", "7c706");
+//
+//    }
 }

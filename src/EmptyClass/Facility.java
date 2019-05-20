@@ -20,23 +20,22 @@ public class Facility { // vertex
 		this.downhead = null;
 	}
 
-
 	//facility name으로 찾아서 반환
-	public Facility search_facility(String name) {
-		Facility f = this;
-		if(f.getName().equals(name)) {
-			return f;
-		}
-		f = f.next;
-		while(f != this) {
-			if(f.getName().equals(name)) {
-				return f;
-			}
-			f = f.next;
-		}
-		System.out.println("Error : cannot find " + name + " facility");
-		return null;
-	}
+//	public Facility search_facility(String name) {
+//		Facility f = this;
+//		if(f.getName().equals(name)) {
+//			return f;
+//		}
+//		f = f.next;
+//		while(f != this) {
+//			if(f.getName().equals(name)) {
+//				return f;
+//			}
+//			f = f.next;
+//		}
+//		System.out.println("Error : cannot find " + name + " facility");
+//		return null;
+//	}
 
 	//return vertex's name
 	public String getName(){ 
@@ -44,7 +43,7 @@ public class Facility { // vertex
 	}
 	
 	//add Edge start to end in start Facility  (head.addEdge())
-	//option : 0 : 평행노드 / 1 : uphead 노드 / 2 : downhead 노드
+	//option : 0 : 평행노드 / 1 : uphead 노드 / 2 : downhead 노드           //현재 구현은 전부 0으로 되어있음
 	//현재 option 0만 제대로 작동 1, 2는 미구현
 	public void addEdge(String end, int time_weight, int option){
 		if(end == null || time_weight<0 ||option <0 || option >2){
@@ -56,14 +55,14 @@ public class Facility { // vertex
 		if(option == 0){
 			edgehead = addEdge(edge, edgehead);
 		}
-		//uphead
-		if(option == 1){
-			uphead = addEdge(edge, uphead);
-		}
-		//downhead
-		if(option == 2){
-			downhead = addEdge(edge, downhead);
-		}
+//		//uphead
+//		if(option == 1){
+//			uphead = addEdge(edge, uphead);
+//		}
+//		//downhead
+//		if(option == 2){
+//			downhead = addEdge(edge, downhead);
+//		}
 	}
 
 	//add edge (vertex는 이미 해당 클래스)
