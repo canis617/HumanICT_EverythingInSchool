@@ -22,10 +22,10 @@ public class ClassInfoDB {
 
     public ClassInfoDB(){
         //initialize DB data
-        server = "13.125.207.238"; // MySQL 서버 주소
-        database = "emptyclass"; // MySQL DATABASE 이름
-        user_name = "root"; //  MySQL 서버 아이디
-        password = ""; // MySQL 서버 비밀번호
+        server = "15.164.26.48"; // MySQL �꽌踰� 二쇱냼
+        database = "emptyclass"; // MySQL DATABASE �씠由�
+        user_name = "root"; //  MySQL �꽌踰� �븘�씠�뵒
+        password = ""; // MySQL �꽌踰� 鍮꾨�踰덊샇
     }
 
     //to set sql, get resultset from sql
@@ -37,14 +37,14 @@ public class ClassInfoDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            System.err.println(" !! <JDBC 오류> Driver load 오류: " + e.getMessage());
+            System.err.println(" !! <JDBC �삤瑜�> Driver load �삤瑜�: " + e.getMessage());
             e.printStackTrace();
         }
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://" + server + "/" + database + "?useSSL=false", user_name,password);
             //connection debug
-            //System.out.println("정상적으로 연결되었습니다.");
+            //System.out.println("�젙�긽�쟻�쑝濡� �뿰寃곕릺�뿀�뒿�땲�떎.");
 
             state = conn.createStatement();
             rs = state.executeQuery(sql);
@@ -58,19 +58,19 @@ public class ClassInfoDB {
             List<Map> list = new ArrayList<Map>();
             Map<String, Object> map;
             String column;
-            // rs의 내용을 돌려준다.
+            // rs�쓽 �궡�슜�쓣 �룎�젮以��떎.
             while (rs.next())
             {
-                // 내부에서 map을 초기화
+                // �궡遺��뿉�꽌 map�쓣 珥덇린�솕
                 map = new HashMap<String, Object>();
-                // Column의 갯수만큼 회전
+                // Column�쓽 媛��닔留뚰겮 �쉶�쟾
                 for (int i = 0; i < col_count; i++) // i : index of column
                 {
                     column = metaData.getColumnName(i + 1);
-                    // map에 값을 입력 map.put(columnName, columnName으로 getString)
+                    // map�뿉 媛믪쓣 �엯�젰 map.put(columnName, columnName�쑝濡� getString)
                     map.put(column, rs.getString(column));
                 }
-                // list에 저장
+                // list�뿉 ���옣
                 list.add(map);
             }
             return list;
@@ -103,13 +103,13 @@ public class ClassInfoDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            System.err.println(" !! <JDBC 오류> Driver load 오류: " + e.getMessage());
+            System.err.println(" !! <JDBC �삤瑜�> Driver load �삤瑜�: " + e.getMessage());
             e.printStackTrace();
         }
         try {
             conn = DriverManager.getConnection("jdbc:mysql://" + server + "/" + database + "?useSSL=false", user_name,password);
             //connection debug
-            //System.out.println("정상적으로 연결되었습니다.");
+            //System.out.println("�젙�긽�쟻�쑝濡� �뿰寃곕릺�뿀�뒿�땲�떎.");
 
             state = conn.createStatement();
             if(state.execute(sql) == true){
@@ -187,7 +187,6 @@ public class ClassInfoDB {
             System.out.println(sql + "successed");
         }
 
-
         return success;
     }
 
@@ -252,29 +251,28 @@ public class ClassInfoDB {
     public static void main(String[] args) {
         Connection con = null;
 
-
         ClassInfoDB testDB = new ClassInfoDB();
 
-        // 1.드라이버 로딩
+        // 1.�뱶�씪�씠踰� 濡쒕뵫
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            System.err.println(" !! <JDBC 오류> Driver load 오류: " + e.getMessage());
+            System.err.println(" !! <JDBC �삤瑜�> Driver load �삤瑜�: " + e.getMessage());
             e.printStackTrace();
         }
 
-        // 2.연결
+        // 2.�뿰寃�
         try {
             con = DriverManager.getConnection("jdbc:mysql://" + testDB.GetServer() + "/" + testDB.GetDataBase() +
                     "?useSSL=false", testDB.GetUserName(), testDB.GetPassword());
 
-            System.out.println("정상적으로 연결되었습니다.");
+            System.out.println("�젙�긽�쟻�쑝濡� �뿰寃곕릺�뿀�뒿�땲�떎.");
         } catch(SQLException e) {
-            System.err.println("con 오류:" + e.getMessage());
+            System.err.println("con �삤瑜�:" + e.getMessage());
             e.printStackTrace();
         }
 
-        // 3.해제
+        // 3.�빐�젣
         try {
             if(con != null)
                 con.close();
