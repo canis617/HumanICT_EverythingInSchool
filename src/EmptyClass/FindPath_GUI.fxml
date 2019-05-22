@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="356.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmptyClass.FindPath_Controller">
+   <children>
+      <Label layoutX="37.0" layoutY="61.0" text="Start" />
+      <Label layoutX="230.0" layoutY="61.0" text="Arrive" />
+      <TextField fx:id="start_label" layoutX="77.0" layoutY="57.0" />
+      <TextField fx:id="arrive_label" layoutX="273.0" layoutY="57.0" />
+      <TextArea fx:id="pathprint_area" layoutX="37.0" layoutY="95.0" prefHeight="235.0" prefWidth="475.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+      <Button fx:id="search_path_btn" layoutX="441.0" layoutY="54.0" mnemonicParsing="false" onAction="#search_path_btn" prefHeight="29.0" prefWidth="63.0" text="Search" />
+   </children>
+</AnchorPane>

@@ -1,45 +1,59 @@
 package EmptyClass;
 
 import java.security.Key;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ClassInfo {
-	private int studentID;
-	List<Map> classList;
-	ClassInfoDB db;
-	/**
-	classList information
 	private String className;
-	private int classID;
-	private int splitClassNumber;
-	private int buildingID;
-	private String roomNumber;
+	private String classID;
+	private String classNumber;
+	private String building;
+	private String room;
 	private String day;
-	private int startTime;
-	private int classLasting;
-	 */
+	private String starttime;
+	private String lastingtime;
 
-	public ClassInfo(int studentID) {
-		this.studentID = studentID;
-		db = new ClassInfoDB();
-		classList = db.GetSchedule(this.studentID);
+	public ClassInfo(){
+		className=null;
+		classID=null;
+		classNumber=null;
+		building=null;
+		room=null;
+		day=null;
+		starttime=null;
+		lastingtime=null;
 	}
 
-	public void PrintSchedule(){
-		db.PrintListMap(classList);
+	public ClassInfo(String className,int classID,int classNumber,int building, String room, String day, int starttime, int lastingtime){
+		this.className=className;
+		this.classID=Integer.toString(classID);
+		this.classNumber=Integer.toString(classNumber);;
+		this.building=Integer.toString(building);
+		this.room=room;
+		this.day=day;
+		this.starttime=Integer.toString(starttime);
+		this.lastingtime=Integer.toString(lastingtime);
 	}
 
-	public List<String> GetKey(String key){
-		List<String> result = null;
-		Map<String, String> current;
-		for(int i=0; i<classList.size();i++){
-			current = classList.get(i);
-			result.add(current.get(key));
-			System.out.println();
+	public boolean isFull(){
+		if(className != null && classID !=null && classNumber!=null&& building !=null && room != null && day !=null && starttime !=null && lastingtime != null){
+			return true;
 		}
-		return result;
+		return false;
 	}
-	//unit test
 
+	public Map<String, String> GetClassInfo() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("classID",classID);
+		map.put("classNum",classNumber);
+		map.put("className",className);
+		map.put("day",day);
+		map.put("starttime",starttime);
+		map.put("lastingtime",lastingtime);
+		map.put("building",building);
+		map.put("room",room);
+		return map;
+	}
 }

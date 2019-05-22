@@ -2,128 +2,126 @@ package EmptyClass;
 
 import java.io.*;
 
-public class Graph{
+public class Graph {
 	public Floor floorhead;
 	public Floor floortail;
-	
+
 	public Graph() {
-		this.floorhead = new Floor();
-		this.floorhead.set_floor_num("floorhead");
-		this.floortail = new Floor();
-		this.floortail.set_floor_num("floortail");
-		this.floorhead.next = this.floortail;
-		this.floortail.next = null;
+		this.floorhead = null;
+		this.floortail = null;
 	}
-	
-	//////////////////////////////////////////////////
-	public class Floor{
-		public Facility head; 
-		public Facility tail;
-		public Floor next;
-		private String floor_num; // B4 ~ B1, 1 ~ 9
-		
-		public Floor() {
-			
+
+	// floor 추가
+	public void add_floor(String floor_name) throws IOException {
+		Floor floor = new Floor(floor_name);
+		try {
+			// one floor declaration like this
+			String floorvertex = "data/" + floor_name + "facility.txt";
+			String flooredge = "data/" + floor_name + "edge.txt";
+			// file read
+			floor.read_floor_vertex(floorvertex);
+			floor.read_floor_edge(flooredge);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-		public Floor(String floor_num) {
-			this.head = new Facility("head");
-			this.tail = new Facility("tail");
-			head.connect_head_tail(tail);
-			this.floor_num = floor_num;
-			
+
+		if (floorhead == null) {
+			floorhead = floor;
+			floortail = floor;
+			floor.next = floor;
+		} else {
+			floortail.next = floor;
+			floor.next = floorhead;
+			floortail = floor;
 		}
+	}
+
+	// read down_floor.txt
+	public Floor add_down_floor(String start_floor, String end_floor) throws IOException {
+		String filename = "data/down_floor.txt";
+		BufferedReader br = new BufferedReader(new FileReader(filename));
+		String line = null;
+		Floor floor = new Floor("mid");
 		
-		public void read_floor_vertex(String filename, Facility tail) throws IOException {
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			
-			String line = null;
-			
-			while((line = br.readLine()) != null) {
-				tail.addFacility(line);
-			}
-			
-			br.close();
-		}
-		
-		public void read_floor_edge(String filename, Facility head) throws IOException {
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			
-			String line = null;
+		while ((line = br.readLine()) != null) {
 			String[] str = new String[3];
-			int num;
-			
-			while((line = br.readLine()) != null) {
-				str = line.split("/");
-				num = Integer.parseInt(str[2]);
-				head.addEdge(str[0], str[1], num);
+			int num = 0;
+			str = line.split("/");
+			num = Integer.parseInt(str[2]);
+			add_updown_edge(str[0], str[1], num, start_floor, end_floor, floor);
+		}
+	
+		br.close();
+		return floor;
+	}
+	
+	// read up_floor.txt
+	public Floor add_up_floor(String start_floor, String end_floor) throws IOException {
+		String filename = "data/up_floor.txt";
+		BufferedReader br = new BufferedReader(new FileReader(filename));
+		String line = null;
+		Floor floor = new Floor("mid");
+		
+		while ((line = br.readLine()) != null) {
+			String[] str = new String[3];
+			int num = 0;
+			str = line.split("/");
+			num = Integer.parseInt(str[2]);
+			add_updown_edge(str[0], str[1], num, start_floor, end_floor, floor);
+		}
+	
+		br.close();
+		return floor;
+	}
+	
+	// add up/down edge to 'mid' floor
+	public void add_updown_edge(String start, String end, int time_weight, String start_floor, String end_floor, Floor floor) {
+		if (start == null || end == null || start_floor == null || end_floor == null) {
+			throw new IllegalArgumentException("input is null");
+		}
+		Facility f;
+		if (start_floor.charAt(0) == start.charAt(0)) { // 출발 층 안에 있는 경우
+			f = this.getFloor(start_floor).getFacility(start);
+			f.addEdge(end, time_weight, 0);
+		} else if (end_floor.charAt(0) == start.charAt(0)) { // 도착 층 안에 있는 경우
+			f = this.getFloor(end_floor).getFacility(start);
+			f.addEdge(end, time_weight, 0);
+		} else { // mid floor에 facility, edge 추가
+			boolean again = false;
+			Facility fl = floor.head;
+			while(fl!=null) { // 중복으로 추가되는 경우 방지
+				if(fl.getName().equals(start)) {
+					again = true; 
+					break;
+				}
+				fl = fl.next;
+				if(fl == floor.head) {
+					again = false;
+					break;
+				}
 			}
-			
-			br.close();
-		}
-		
-		public String get_floor_num() {
-			return this.floor_num;
-		}
-		public void set_floor_num(String name) {
-			this.floor_num = name;
-		}
-		
-	}
-	//////////////////////////////////////////////////
-	
-	
-	public void add_floor() throws IOException {
-		
-		//이런식으로 한 층 선언
-		Floor floor_7 = new Floor("7");
-		String floor7vertex = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\7facility.txt";
-		String floor7edge = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\7edge.txt";
-		floor_7.read_floor_vertex(floor7vertex, floor_7.tail);
-		floor_7.read_floor_edge(floor7edge, floor_7.head);
-		//System.out.println(floor_7.get_floor_num()+"floor vertex, edge complete!");
-		connect_floorlist(floor_7);
-		//floor_7.head.print_all_vertex();
-		
-		Floor floor_6 = new Floor("6");
-		String floor6vertex = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\6facility.txt";
-		floor_6.read_floor_vertex(floor6vertex, floor_6.tail);
-		//System.out.println(floor_6.get_floor_num()+"floor vertex complete!");
-		connect_floorlist(floor_6);
-		//floor_6.head.print_all_vertex();
-		
-		Floor floor_5 = new Floor("5");
-		String floor5vertex = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\5facility.txt";
-		floor_5.read_floor_vertex(floor5vertex, floor_5.tail);
-		//System.out.println(floor_5.get_floor_num()+"floor vertex complete!");
-		connect_floorlist(floor_5);
-		//floor_5.head.print_all_vertex();
-		
-		Floor floor_B1 = new Floor("B1");
-		String floorB1vertex = "C:\\Users\\USER\\Desktop\\동욱\\workspace\\HumanICT_EverythingInSchool\\data\\B1facility.txt";
-		floor_B1.read_floor_vertex(floorB1vertex, floor_B1.tail);
-		//System.out.println(floor_B1.get_floor_num()+"floor vertex complete!");
-		connect_floorlist(floor_B1);
-		//floor_B1.head.print_all_vertex();
-	}
-	
-	//add floor to floorhead(make floor linkedlist in graph class)
-	public void connect_floorlist(Floor f) {
-		f.next = this.floorhead.next;
-		this.floorhead.next = f;
-	}
-	
-	public void print_all_floornum() {
-		Floor f = this.floorhead;
-		System.out.println("\nprint_all_floornum");
-		while(true) {
-			System.out.println(f.get_floor_num());
-			f = f.next;
-			if(f.next == null) {
-				System.out.println(f.get_floor_num());
-				System.out.println("finish_print_all_floor");
-				break;
+			if(!again) { // 중복이 없으면 노드 추가
+				floor.addFacility(start);
 			}
+			f = floor.getFacility(start);
+			f.addEdge(end, time_weight, 0);
 		}
-		
 	}
+	
+	// name에 해당되는 floor 반환
+	public Floor getFloor(String floor) {
+		Floor temp = floorhead;
+		if (temp.get_floor_num().equals(floor)) {
+			return temp;
+		}
+		temp = temp.next;
+		while (temp != floorhead) {
+			if (temp.get_floor_num().equals(floor)) {
+				return temp;
+			}
+			temp = temp.next;
+		}
+		return null;
+	}
+
 }
