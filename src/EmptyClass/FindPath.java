@@ -18,7 +18,7 @@ public class FindPath {
 
 	//find path 호출부분
 	//Dijkstra : subgraph 생성후 결과 path를 stack으로 저장해서 반환해줌. 이를 출력
-	public void find_path(String start, String end) throws IOException {
+	public Stack<Edge> find_path(String start, String end) throws IOException {
 		//get floor
 		String start_floor = start.substring(0,1);
 		String end_floor = end.substring(0,1);
@@ -51,11 +51,12 @@ public class FindPath {
 			}
 		}
 
-		//return result : stack<Edge>
-		for(int i = 0; !result.empty();i++){
-			Edge tempEdge = result.pop();
-			System.out.println(tempEdge.get_edge_start()+" -> "+tempEdge.get_edge_end()+" = "+tempEdge.get_time_weight());
-		}
+//		//return result : stack<Edge>
+//		for(int i = 0; !result.empty();i++){
+//			Edge tempEdge = result.pop();
+//			System.out.println(tempEdge.get_edge_start()+" -> "+tempEdge.get_edge_end()+" = "+tempEdge.get_time_weight());
+//		}
+		return result;
 	}
 
 }

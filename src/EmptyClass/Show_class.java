@@ -8,11 +8,11 @@ public class Show_class {
 	private StringProperty mon;
 	private StringProperty tue;
 	private StringProperty wed;
-	private IntegerProperty thu;
-	private IntegerProperty fri;
+	private StringProperty thu;
+	private StringProperty fri;
 
-	public Show_class(IntegerProperty ct, StringProperty mon, StringProperty tue, StringProperty wed, IntegerProperty thu,
-			IntegerProperty fri) {
+	public Show_class(IntegerProperty ct, StringProperty mon, StringProperty tue, StringProperty wed, StringProperty thu,
+			StringProperty fri) {
 		this.ct = ct;
 		this.mon = mon;
 		this.tue = tue;
@@ -37,11 +37,11 @@ public class Show_class {
 		return wed;
 	}
 
-	public IntegerProperty thursday() {
+	public StringProperty thursday() {
 		return thu;
 	}
 
-	public IntegerProperty friday() {
+	public StringProperty friday() {
 		return fri;
 	}
 }

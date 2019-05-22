@@ -29,9 +29,9 @@ public class Login extends Application {
          * The base class for all nodes that have children in the scene graph.
          * 즉 모든 아이들(컨포넌트들)이 소속될 부모(Scene) 정도?          
          */
-        Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("LoginGUI.fxml"));
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Class Program");
+        primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
         primaryStage.show();
         /*
