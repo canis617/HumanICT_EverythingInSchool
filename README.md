@@ -3,10 +3,10 @@ It is not difficult for existing students to move in the school according to the
 ## Table of Contents
 * [UserGuide](#User Guide)
     1. [Description](#Description)
-    2. [How to Use](#How to Use)
-    3. [GUI Guide](#GUI GUIDE)
-* [Development Guide](#Development Guide)
-    1. [How to Contribute](#Contribute Guide)
+    2. [How to Use](#HowtoUse)
+    3. [GUI Guide](#GUIGUIDE)
+* [Development Guide](#DevelopmentGuide)
+    1. [How to Contribute](#ContributeGuide)
     2. [File Structure](#FileStructure)
     3. [Licensing](#Licensing)
     4. [Resources](#Resources)
@@ -18,10 +18,10 @@ It is not difficult for existing students to move in the school according to the
 
 ### Description
 It is not difficult for existing students to move in the school according to their schedule or other schedule, but they are often ineffective in using the classrooms and facilities if they do not attend class or visit the school for a long time. Students will be able to adapt to the school more easily if they are provided with information on where to go after class and when class hours are empty.
-### How to Use
+### HowtoUse
 Put the jar file and exe file in the same directory and run only the exe file.
 
-###GUI GUIDE
+### GUIGUIDE
 [login](img/guiguide3.png)
 Login : Output the timetable registered at the time of account registration after entering the student number
 [main page](img/guiguide1.png)
@@ -36,9 +36,9 @@ Find Path : Shortest path search function from starting point to arrival point
 
 --------------------------
 
-## Development Guide
+## DevelopmentGuide
 
-### How to Contribute
+### ContributeGuide
 Give Issues or fork and pull request
 
 ### File Structure
