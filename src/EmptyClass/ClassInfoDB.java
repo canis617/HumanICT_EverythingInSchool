@@ -22,10 +22,10 @@ public class ClassInfoDB {
 
     public ClassInfoDB(){
         //initialize DB data
-        server = "15.164.26.48"; // MySQL �꽌踰� 二쇱냼
-        database = "emptyclass"; // MySQL DATABASE �씠由�
-        user_name = "root"; //  MySQL �꽌踰� �븘�씠�뵒
-        password = ""; // MySQL �꽌踰� 鍮꾨�踰덊샇
+        server = "15.164.26.48"; // MySQL host address
+        database = "emptyclass"; // MySQL DATABASE name
+        user_name = "root"; //  MySQL user name
+        password = ""; // MySQL password
     }
 
     //to set sql, get resultset from sql
@@ -37,14 +37,14 @@ public class ClassInfoDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            System.err.println(" !! <JDBC �삤瑜�> Driver load �삤瑜�: " + e.getMessage());
+            System.err.println(" !! <JDBC class> Driver load failed: " + e.getMessage());
             e.printStackTrace();
         }
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://" + server + "/" + database + "?useSSL=false", user_name,password);
             //connection debug
-            //System.out.println("�젙�긽�쟻�쑝濡� �뿰寃곕릺�뿀�뒿�땲�떎.");
+
 
             state = conn.createStatement();
             rs = state.executeQuery(sql);
@@ -58,19 +58,19 @@ public class ClassInfoDB {
             List<Map> list = new ArrayList<Map>();
             Map<String, Object> map;
             String column;
-            // rs�쓽 �궡�슜�쓣 �룎�젮以��떎.
+            // rs
             while (rs.next())
             {
-                // �궡遺��뿉�꽌 map�쓣 珥덇린�솕
+
                 map = new HashMap<String, Object>();
-                // Column�쓽 媛��닔留뚰겮 �쉶�쟾
+
                 for (int i = 0; i < col_count; i++) // i : index of column
                 {
                     column = metaData.getColumnName(i + 1);
-                    // map�뿉 媛믪쓣 �엯�젰 map.put(columnName, columnName�쑝濡� getString)
+
                     map.put(column, rs.getString(column));
                 }
-                // list�뿉 ���옣
+
                 list.add(map);
             }
             return list;
@@ -109,7 +109,7 @@ public class ClassInfoDB {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://" + server + "/" + database + "?useSSL=false", user_name,password);
             //connection debug
-            //System.out.println("�젙�긽�쟻�쑝濡� �뿰寃곕릺�뿀�뒿�땲�떎.");
+
 
             state = conn.createStatement();
             if(state.execute(sql) == true){
@@ -257,7 +257,7 @@ public class ClassInfoDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            System.err.println(" !! <JDBC �삤瑜�> Driver load �삤瑜�: " + e.getMessage());
+            System.err.println(" !! <JDBC Class> Driver load fail: " + e.getMessage());
             e.printStackTrace();
         }
 
@@ -266,9 +266,9 @@ public class ClassInfoDB {
             con = DriverManager.getConnection("jdbc:mysql://" + testDB.GetServer() + "/" + testDB.GetDataBase() +
                     "?useSSL=false", testDB.GetUserName(), testDB.GetPassword());
 
-            System.out.println("�젙�긽�쟻�쑝濡� �뿰寃곕릺�뿀�뒿�땲�떎.");
+            System.out.println("connection success");
         } catch(SQLException e) {
-            System.err.println("con �삤瑜�:" + e.getMessage());
+            System.err.println("con failed:" + e.getMessage());
             e.printStackTrace();
         }
 
@@ -289,7 +289,7 @@ public class ClassInfoDB {
 
             //get student's class list
             List<Map> studentClassList = test.GetSchedule(20150864);
-            test.PrintListMap(studentClassList);
+            test.PrintListMap(studentClassList);g
 
             try {
                 test.SetSchedule(20150864, 10000, 01);
