@@ -29,13 +29,13 @@ public class Edge {
 			this.time_weight = time_weight;
 		this.next = null;
 	}
-	
-	// ½Ã°£ µû¶ó ¿¤¸®º£ÀÌÅÍ time_weight °¡ÁßÄ¡ º¯°æ
+
+	// ì‹œê°„ ë”°ë¼ ì—˜ë¦¬ë² ì´í„° time_weight ê°€ì¤‘ì¹˜ ë³€ê²½
 	public int time_change_elevator(int time_weight) {
 		int num;
 		Calendar cal = Calendar.getInstance();
 		num = cal.get(Calendar.MINUTE);
-		if (num >= 50 && num < 60) // ÀÌºÎºĞ °¡ÁßÄ¡ ¼öÁ¤ ¿ä¸Á
+		if (num >= 50 && num < 60) // ì´ë¶€ë¶„ ê°€ì¤‘ì¹˜ ìˆ˜ì • ìš”ë§
 			num = time_weight * 20;
 		else
 			num = time_weight;

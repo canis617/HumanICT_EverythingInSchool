@@ -21,7 +21,7 @@ public class Floor{
         this.next = this;
     }
 
-    //vertexÆÄÀÏ ÀÐ¾î¼­ ÀúÀå
+    //vertexíŒŒì¼ ì½ì–´ì„œ ì €ìž¥
     public void read_floor_vertex(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line = null;
@@ -30,7 +30,7 @@ public class Floor{
         }
         br.close();
     }
-    //edge ÆÄÀÏ ÀÐ¾î¼­ ÀúÀå
+    //edge íŒŒì¼ ì½ì–´ì„œ ì €ìž¥
     public void read_floor_edge(String filename) throws IOException {
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -49,7 +49,7 @@ public class Floor{
             System.out.println(e.getMessage());
         }
     }
-    //facility Ãß°¡
+    //facility ì¶”ê°€
     public boolean addFacility(String name){
         if(name == null){
             throw new IllegalArgumentException("name is null");
@@ -68,7 +68,7 @@ public class Floor{
         return true;
     }
 
-    //edgeÃß°¡ start vertex Ã£À½ -> edge Ãß°¡
+    //edgeì¶”ê°€ start vertex ì°¾ìŒ -> edge ì¶”ê°€
     public boolean addEdge(String start, String end, int time){
         if(start == null || end ==null || time<0){
             throw new IllegalArgumentException("add edge argument error");
@@ -111,7 +111,7 @@ public class Floor{
         }
     }
 
-    //floor nameÀ¸·Î ºñ±³
+    //floor nameìœ¼ë¡œ ë¹„êµ
     //same : 0 / start > end : 1 / start < end : -1
     public int compareFloor(String start, String end){
         char start_floor = start.charAt(0);
@@ -139,20 +139,20 @@ public class Floor{
             }
         }
     }
-    
-    // name¿¡ ÇØ´çµÇ´Â facility ¹ÝÈ¯
-  	public Facility getFacility(String name) {
-  		Facility temp = head;
-  		if (temp.getName().equals(name)) {
-  			return temp;
-  		}
-  		temp = temp.next;
-  		while (temp != head) {
-  			if (temp.getName().equals(name)) {
-  				return temp;
-  			}
-  			temp = temp.next;
-  		}
-  		return null;
-  	}
+
+    // nameì— í•´ë‹¹ë˜ëŠ” facility ë°˜í™˜
+    public Facility getFacility(String name) {
+        Facility temp = head;
+        if (temp.getName().equals(name)) {
+            return temp;
+        }
+        temp = temp.next;
+        while (temp != head) {
+            if (temp.getName().equals(name)) {
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
+    }
 }

@@ -8,7 +8,7 @@ public class Main {
 
 		//start UI
 		//Login startLogin = new Login();
-		
+
 		Graph g = new Graph();
 
 		String[] floorList = new String[13];
@@ -28,10 +28,10 @@ public class Main {
 		for(int i=0; i<floorList.length;i++){
 			g.add_floor(floorList[i]);
 		}
-		
+
 		FindPath fp = new FindPath(g);
-		fp.find_path("DcÆíÀÇÁ¡", "7c720");
-		
+		fp.find_path("Dcí•™ìƒì‹ë‹¹", "7c720");
+
 	}
 
 }

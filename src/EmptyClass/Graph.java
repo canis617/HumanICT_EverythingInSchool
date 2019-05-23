@@ -11,7 +11,7 @@ public class Graph {
 		this.floortail = null;
 	}
 
-	// floor Ãß°¡
+	// floor ì¶”ê°€
 	public void add_floor(String floor_name) throws IOException {
 		Floor floor = new Floor(floor_name);
 		try {
@@ -42,7 +42,7 @@ public class Graph {
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		String line = null;
 		Floor floor = new Floor("mid");
-		
+
 		while ((line = br.readLine()) != null) {
 			String[] str = new String[3];
 			int num = 0;
@@ -50,18 +50,18 @@ public class Graph {
 			num = Integer.parseInt(str[2]);
 			add_updown_edge(str[0], str[1], num, start_floor, end_floor, floor);
 		}
-	
+
 		br.close();
 		return floor;
 	}
-	
+
 	// read up_floor.txt
 	public Floor add_up_floor(String start_floor, String end_floor) throws IOException {
 		String filename = "data/up_floor.txt";
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		String line = null;
 		Floor floor = new Floor("mid");
-		
+
 		while ((line = br.readLine()) != null) {
 			String[] str = new String[3];
 			int num = 0;
@@ -69,29 +69,29 @@ public class Graph {
 			num = Integer.parseInt(str[2]);
 			add_updown_edge(str[0], str[1], num, start_floor, end_floor, floor);
 		}
-	
+
 		br.close();
 		return floor;
 	}
-	
+
 	// add up/down edge to 'mid' floor
 	public void add_updown_edge(String start, String end, int time_weight, String start_floor, String end_floor, Floor floor) {
 		if (start == null || end == null || start_floor == null || end_floor == null) {
 			throw new IllegalArgumentException("input is null");
 		}
 		Facility f;
-		if (start_floor.charAt(0) == start.charAt(0)) { // Ãâ¹ß Ãş ¾È¿¡ ÀÖ´Â °æ¿ì
+		if (start_floor.charAt(0) == start.charAt(0)) { // ì¶œë°œ ì¸µ ì•ˆì— ìˆëŠ” ê²½ìš°
 			f = this.getFloor(start_floor).getFacility(start);
 			f.addEdge(end, time_weight, 0);
-		} else if (end_floor.charAt(0) == start.charAt(0)) { // µµÂø Ãş ¾È¿¡ ÀÖ´Â °æ¿ì
+		} else if (end_floor.charAt(0) == start.charAt(0)) { // ë„ì°© ì¸µ ì•ˆì— ìˆëŠ” ê²½ìš°
 			f = this.getFloor(end_floor).getFacility(start);
 			f.addEdge(end, time_weight, 0);
-		} else { // mid floor¿¡ facility, edge Ãß°¡
+		} else { // mid floorì— facility, edge ì¶”ê°€
 			boolean again = false;
 			Facility fl = floor.head;
-			while(fl!=null) { // Áßº¹À¸·Î Ãß°¡µÇ´Â °æ¿ì ¹æÁö
+			while(fl!=null) { // ì¤‘ë³µìœ¼ë¡œ ì¶”ê°€ë˜ëŠ” ê²½ìš° ë°©ì§€
 				if(fl.getName().equals(start)) {
-					again = true; 
+					again = true;
 					break;
 				}
 				fl = fl.next;
@@ -100,15 +100,15 @@ public class Graph {
 					break;
 				}
 			}
-			if(!again) { // Áßº¹ÀÌ ¾øÀ¸¸é ³ëµå Ãß°¡
+			if(!again) { // ì¤‘ë³µì´ ì—†ìœ¼ë©´ ë…¸ë“œ ì¶”ê°€
 				floor.addFacility(start);
 			}
 			f = floor.getFacility(start);
 			f.addEdge(end, time_weight, 0);
 		}
 	}
-	
-	// name¿¡ ÇØ´çµÇ´Â floor ¹İÈ¯
+
+	// nameì— í•´ë‹¹ë˜ëŠ” floor ë°˜í™˜
 	public Floor getFloor(String floor) {
 		Floor temp = floorhead;
 		if (temp.get_floor_num().equals(floor)) {

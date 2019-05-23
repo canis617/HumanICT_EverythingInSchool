@@ -6,18 +6,18 @@ import java.util.Stack;
 
 public class FindPath {
 	Graph graph310;
-	
+
 	public FindPath() {
 		graph310=null;
 	}
 
-	//ÀüÃ¼ graph¹Ş¾Æ¼­ ÃÊ±âÈ­
+	//ì „ì²´ graphë°›ì•„ì„œ ì´ˆê¸°í™”
 	public FindPath(Graph g) {
 		this.graph310 = g;
 	}
 
-	//find path È£ÃâºÎºĞ
-	//Dijkstra : subgraph »ı¼ºÈÄ °á°ú path¸¦ stackÀ¸·Î ÀúÀåÇØ¼­ ¹İÈ¯ÇØÁÜ. ÀÌ¸¦ Ãâ·Â
+	//find path í˜¸ì¶œë¶€ë¶„
+	//Dijkstra : subgraph ìƒì„±í›„ ê²°ê³¼ pathë¥¼ stackìœ¼ë¡œ ì €ì¥í•´ì„œ ë°˜í™˜í•´ì¤Œ. ì´ë¥¼ ì¶œë ¥
 	public Stack<Edge> find_path(String start, String end) throws IOException {
 		//get floor
 		String start_floor = start.substring(0,1);
@@ -36,7 +36,7 @@ public class FindPath {
 			//add two floor
 			subGraph.addFloor(graph310.getFloor(start_floor));
 			subGraph.addFloor(graph310.getFloor(end_floor));
-			
+
 			//start is up, end is down
 			if(compare > 0){
 				//get two floor and only start->end down edge

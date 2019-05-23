@@ -103,7 +103,7 @@ public class ClassInfoDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            System.err.println(" !! <JDBC �삤瑜�> Driver load �삤瑜�: " + e.getMessage());
+            System.err.println(" !! <JDBC connect> Driver load fail: " + e.getMessage());
             e.printStackTrace();
         }
         try {
@@ -289,7 +289,7 @@ public class ClassInfoDB {
 
             //get student's class list
             List<Map> studentClassList = test.GetSchedule(20150864);
-            test.PrintListMap(studentClassList);g
+            test.PrintListMap(studentClassList);
 
             try {
                 test.SetSchedule(20150864, 10000, 01);

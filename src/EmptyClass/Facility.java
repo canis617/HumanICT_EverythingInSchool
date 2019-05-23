@@ -9,9 +9,9 @@ public class Facility { // vertex
 	private Edge downhead;			//downhead edge list
 	/////
 	public Facility() {
-		
+
 	}
-	//nameÀ¸·Î ÃÊ±âÈ­
+	//nameìœ¼ë¡œ ì´ˆê¸°í™”
 	public Facility(String name) {
 		this.name = name;
 		this.next = this;
@@ -20,7 +20,7 @@ public class Facility { // vertex
 		this.downhead = null;
 	}
 
-	//facility nameÀ¸·Î Ã£¾Æ¼­ ¹İÈ¯
+	//facility nameìœ¼ë¡œ ì°¾ì•„ì„œ ë°˜í™˜
 //	public Facility search_facility(String name) {
 //		Facility f = this;
 //		if(f.getName().equals(name)) {
@@ -38,24 +38,24 @@ public class Facility { // vertex
 //	}
 
 	//return vertex's name
-	public String getName(){ 
-      return String.valueOf(this.name);
+	public String getName(){
+		return String.valueOf(this.name);
 	}
-	
+
 	//add Edge start to end in start Facility  (head.addEdge())
-	//option : 0 : ÆòÇà³ëµå / 1 : uphead ³ëµå / 2 : downhead ³ëµå           //ÇöÀç ±¸ÇöÀº ÀüºÎ 0À¸·Î µÇ¾îÀÖÀ½
-	//ÇöÀç option 0¸¸ Á¦´ë·Î ÀÛµ¿ 1, 2´Â ¹Ì±¸Çö
+	//option : 0 : í‰í–‰ë…¸ë“œ / 1 : uphead ë…¸ë“œ / 2 : downhead ë…¸ë“œ           //í˜„ì¬ êµ¬í˜„ì€ ì „ë¶€ 0ìœ¼ë¡œ ë˜ì–´ìˆìŒ
+	//í˜„ì¬ option 0ë§Œ ì œëŒ€ë¡œ ì‘ë™ 1, 2ëŠ” ë¯¸êµ¬í˜„
 	public void addEdge(String end, int time_weight, int option){
 		if(end == null || time_weight<0 ||option <0 || option >2){
 			throw new IllegalArgumentException("add Edge argument error");
 		}
 		Edge edge = new Edge(name, end, time_weight);
-		
+
 		//default
 		if(option == 0){
 			edgehead = addEdge(edge, edgehead);
 		}
-		
+
 //		//uphead
 //		if(option == 1){
 //			uphead = addEdge(edge, uphead);
@@ -64,10 +64,10 @@ public class Facility { // vertex
 //		if(option == 2){
 //			downhead = addEdge(edge, downhead);
 //		}
-		
+
 	}
 
-	//add edge (vertex´Â ÀÌ¹Ì ÇØ´ç Å¬·¡½º)
+	//add edge (vertexëŠ” ì´ë¯¸ í•´ë‹¹ í´ë˜ìŠ¤)
 	public Edge addEdge(Edge edge, Edge head){
 		Edge temp = head;
 		if(temp == null){
@@ -79,7 +79,7 @@ public class Facility { // vertex
 			}
 			temp.next = edge;
 		}
-		
+
 		return head;
 	}
 

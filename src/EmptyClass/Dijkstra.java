@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Stack;
 
-//´ÙÀÍ½ºÆ®¶ó ÀÚ·á±¸Á¶ = ¼­ºê±×·¡ÇÁ, ´ÙÀÍ½ºÆ®¶ó ±¸ÇÏ±â¿ë
+//ë‹¤ìµìŠ¤íŠ¸ë¼ ìë£Œêµ¬ì¡° = ì„œë¸Œê·¸ë˜í”„, ë‹¤ìµìŠ¤íŠ¸ë¼ êµ¬í•˜ê¸°ìš©
 class Dijkstra {
     Facility vertex;
     int dist;
@@ -16,7 +16,7 @@ class Dijkstra {
     boolean visited;
     Dijkstra next;
 
-    //ÃÊ±âÈ­
+    //ì´ˆê¸°í™”
     public Dijkstra() {
         this.vertex = null;
         dist = 1000000; // MAX
@@ -24,7 +24,7 @@ class Dijkstra {
         visited = false;
         next = null;
     }
-    //1°³ vertex·Î ÃÊ±âÈ­
+    //1ê°œ vertexë¡œ ì´ˆê¸°í™”
     public Dijkstra(Facility vertex) {
         this.vertex = vertex;
         dist = 1000000; // MAX
@@ -32,7 +32,7 @@ class Dijkstra {
         visited = false;
         next = null;
     }
-    //vertex Ãß°¡
+    //vertex ì¶”ê°€
     public boolean addVertex(Facility vertex){
         if(this.vertex == null){
             this.vertex = vertex;
@@ -47,7 +47,7 @@ class Dijkstra {
             return true;
         }
     }
-    //floor Ãß°¡
+    //floor ì¶”ê°€
     public boolean addFloor(Floor floor){
         if(floor == null){
             return false;
@@ -61,7 +61,7 @@ class Dijkstra {
         }
         return true;
     }
-    //´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò¿¡ ÇÊ¿äÇÑ º¯¼ö ÃÊ±âÈ­
+    //ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜ì— í•„ìš”í•œ ë³€ìˆ˜ ì´ˆê¸°í™”
     public void resetDijkstra(){
         Dijkstra temp = this;
         while(temp != null){
@@ -72,7 +72,7 @@ class Dijkstra {
         }
     }
 
-    //start vertex ¼³Á¤ - ´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò ½ÇÇà Àü ÃÊ±âÈ­ °³³ä
+    //start vertex ì„¤ì • - ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜ ì‹¤í–‰ ì „ ì´ˆê¸°í™” ê°œë…
     public boolean setStartvertex(String name){
         resetDijkstra();
         Dijkstra temp = this;
@@ -88,7 +88,7 @@ class Dijkstra {
         return false;
     }
 
-    //´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò
+    //ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜
     public boolean runDijkstra(){
         Dijkstra temp;
         Dijkstra minNode = minDist();
@@ -117,7 +117,7 @@ class Dijkstra {
         return true;
     }
 
-    //ÃÖ¼Ò °Å¸® vertex °ñ¶ó¼­ return
+    //ìµœì†Œ ê±°ë¦¬ vertex ê³¨ë¼ì„œ return
     public Dijkstra minDist() {
         Dijkstra temp = this;
         Dijkstra min = new Dijkstra();
@@ -133,7 +133,7 @@ class Dijkstra {
         return null;
     }
 
-    //dijstra ÇÔ¼ö È£ÃâºÎºĞ °á°ú´Â stackÀ¸·Î ÇÏ¿© return
+    //dijstra í•¨ìˆ˜ í˜¸ì¶œë¶€ë¶„ ê²°ê³¼ëŠ” stackìœ¼ë¡œ í•˜ì—¬ return
     public Stack<Edge> findPathStack(String start, String end){
 
         setStartvertex(start);
@@ -143,7 +143,7 @@ class Dijkstra {
         Stack<Edge> result = new Stack<Edge>();
         Edge tempEdge= null;
         Dijkstra temp = this;
-              
+
         //start == end
         if(start.equals(end)){
             return null;

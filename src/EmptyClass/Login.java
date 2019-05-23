@@ -12,22 +12,22 @@ import javafx.stage.Stage;
 
 
 public class Login extends Application {
-	
-	public Login() {
-		//Java GUI create
-		// TODO Auto-generated constructor stub
-	}
 
-	public static void main(String[] args) {
-		launch(args);
+    public Login() {
+        //Java GUI create
+        // TODO Auto-generated constructor stub
     }
 
-	public void start(Stage primaryStage) throws Exception {
-        /* 
-         * Scene Builder ¸¦ ÀÌ¿ëÇÏ¿© È­¸éÀ» ¸¸µé°í ÀÚ¹Ù¿¡ fxml ÆÄÀÏÀ» ¿¬°á½ÃÄÑÁØ´Ù.
-         * Parent Å¬·¡½ºÀÇ Á¤ÀÇ´Â ´ÙÀ½°ú °°´Ù.
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    public void start(Stage primaryStage) throws Exception {
+        /*
+         * Scene Builder ë¥¼ ì´ìš©í•˜ì—¬ í™”ë©´ì„ ë§Œë“¤ê³  ìžë°”ì— fxml íŒŒì¼ì„ ì—°ê²°ì‹œì¼œì¤€ë‹¤.
+         * Parent í´ëž˜ìŠ¤ì˜ ì •ì˜ëŠ” ë‹¤ìŒê³¼ ê°™ë‹¤.
          * The base class for all nodes that have children in the scene graph.
-         * Áï ¸ðµç ¾ÆÀÌµé(ÄÁÆ÷³ÍÆ®µé)ÀÌ ¼Ò¼ÓµÉ ºÎ¸ð(Scene) Á¤µµ?          
+         * ì¦‰ ëª¨ë“  ì•„ì´ë“¤(ì»¨í¬ë„ŒíŠ¸ë“¤)ì´ ì†Œì†ë  ë¶€ëª¨(Scene) ì •ë„?
          */
         Parent root = FXMLLoader.load(getClass().getResource("LoginGUI.fxml"));
         Scene scene = new Scene(root);
@@ -35,8 +35,8 @@ public class Login extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         /*
-         * Scene Builder ´Â Window -> Preference -> JavaFX ¿¡ À§Ä¡¸¦ µî·ÏÇÏ¸é
-         * fxml ÆÄÀÏÀ» ¿ìÅ¬¸¯ ÇÏ¿© Open with Scene Builder ¸¦ ¼±ÅÃÇØ¼­ ÆíÁý °¡´ÉÇÏ´Ù.
+         * Scene Builder ëŠ” Window -> Preference -> JavaFX ì— ìœ„ì¹˜ë¥¼ ë“±ë¡í•˜ë©´
+         * fxml íŒŒì¼ì„ ìš°í´ë¦­ í•˜ì—¬ Open with Scene Builder ë¥¼ ì„ íƒí•´ì„œ íŽ¸ì§‘ ê°€ëŠ¥í•˜ë‹¤.
          */
     }
 
