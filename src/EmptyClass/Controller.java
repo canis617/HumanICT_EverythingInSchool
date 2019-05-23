@@ -127,7 +127,6 @@ public class Controller implements Initializable {
 
 	@FXML
 	void find_path_btn(ActionEvent event) {
-		
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FindPath_GUI.fxml"));
 			Parent root_ = (Parent) fxmlLoader.load();
@@ -139,6 +138,5 @@ public class Controller implements Initializable {
 			System.out.println(e);
 			System.out.println("cannot load new window");
 		}
-		
 	}
 }

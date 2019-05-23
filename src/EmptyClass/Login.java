@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 public class Login extends Application {
 
     public Login() {
-        //Java GUI create
-        // TODO Auto-generated constructor stub
     }
 
     public static void main(String[] args) {

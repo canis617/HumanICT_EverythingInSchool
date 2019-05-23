@@ -11,7 +11,7 @@ public class FindPath {
 		graph310=null;
 	}
 
-	//전체 graph받아서 초기화
+	//initialize with g
 	public FindPath(Graph g) {
 		this.graph310 = g;
 	}
@@ -50,12 +50,14 @@ public class FindPath {
 				result = subGraph.findPathStack(start, end);
 			}
 		}
+/*
+//result path debuging
+		for(int i = 0; !result.empty();i++){
+			Edge tempEdge = result.pop();
+			System.out.println(tempEdge.get_edge_start()+" -> "+tempEdge.get_edge_end()+" = "+tempEdge.get_time_weight());
+		}
 
-//		//return result : stack<Edge>
-//		for(int i = 0; !result.empty();i++){
-//			Edge tempEdge = result.pop();
-//			System.out.println(tempEdge.get_edge_start()+" -> "+tempEdge.get_edge_end()+" = "+tempEdge.get_time_weight());
-//		}
+ */
 		return result;
 	}
 
