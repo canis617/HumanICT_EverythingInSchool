@@ -1,6 +1,6 @@
 # HumanICT_EverythingInSchool
 
-##Table of Contents
+## Table of Contents
 * [UserGuide](##User Guide)
     1. [Description](###Description)
     2. [How to Use](###How to Use)
@@ -10,25 +10,25 @@
     3. [Licensing](##Licensing)
     4. [Resources](##Resources)
     5. [Library](##Library)
-##User Guide
+## User Guide
 
-###Description
+### Description
 
-###How to Use
+### How to Use
 
-##Development Guide
+## Development Guide
 
-###How to Contribute
+### How to Contribute
 Give Issues or fork and pull request
-###File Structure
+### File Structure
 * DB
 * Algorithm
 * GUI
-###Licensing
+### Licensing
 [MIT License](LICENSE)
-###Resources
+### Resources
 * [http://portal.cau.ac.kr](http://)
 
-###Library
+### Library
 * MySQL 8.0.16
 * JAVAFX
