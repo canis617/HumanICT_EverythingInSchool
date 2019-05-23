@@ -1,17 +1,19 @@
 apply plugin: 'java'
 apply plugin: 'application'
-mainClassName = 'EmptyClass.Login'
+apply plugin: 'eclipse'
+
+mainClassName = 'hello/HelloWorld'
+
 repositories {
+    mavenLocal()
     mavenCentral()
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
-dependencies{
-
+dependencies {
+    compile "joda-time:joda-time:2.2"
 }
 
 jar {
-    baseName = 'emptyclass-test'
-    version = '0.1.0'
+    baseName = "empty"
+    version = "0.1.0"
 }

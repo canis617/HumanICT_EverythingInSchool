@@ -151,7 +151,5 @@ public class Graph {
 
 		FindPath fp = new FindPath(g);
 		fp.find_path("Dc학생식당", "7c720");
-
 	}
-
 }

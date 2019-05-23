@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+<artifact type="jar" build-on-make="true" name="HumanICT_EverythingInSchool:jar">
+  <output-path>$PROJECT_DIR$</output-path>
+  <root id="archive" name="HumanICT_EverythingInSchool.jar">
+    <element id="module-output" name="HumanICT_EverythingInSchool" />
+    <element id="library" level="project" name="mysql-connector-java-8.0.16" />
+  </root>
+</artifact>
+</component>

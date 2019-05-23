@@ -50,14 +50,12 @@ public class FindPath {
 				result = subGraph.findPathStack(start, end);
 			}
 		}
-/*
 //result path debuging
 		for(int i = 0; !result.empty();i++){
 			Edge tempEdge = result.pop();
 			System.out.println(tempEdge.get_edge_start()+" -> "+tempEdge.get_edge_end()+" = "+tempEdge.get_time_weight());
 		}
 
- */
 		return result;
 	}
 
