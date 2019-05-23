@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = 'EmptyClass.Login'
+repositories {
+    mavenCentral()
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies{
+
+}
+
+jar {
+    baseName = 'emptyclass-test'
+    version = '0.1.0'
+}
