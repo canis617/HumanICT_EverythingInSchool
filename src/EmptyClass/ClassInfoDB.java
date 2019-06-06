@@ -22,10 +22,10 @@ public class ClassInfoDB {
 
     public ClassInfoDB(){
         //initialize DB data
-        server = ""; // MySQL host address
-        database = ""; // MySQL DATABASE name
-        user_name = ""; //  MySQL user name
-        password = ""; // MySQL password
+        server = "15.164.26.48"; // MySQL host address
+        database = "emptyclass"; // MySQL DATABASE name
+        user_name = "root"; //  MySQL user name
+        password = "emptyClassq1"; // MySQL password
     }
 
     //to set sql, get resultset from sql
