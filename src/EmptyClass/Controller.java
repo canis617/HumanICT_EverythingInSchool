@@ -61,7 +61,7 @@ public class Controller implements Initializable {
 	private TextField classtime_label;
 	@FXML
 	private ChoiceBox<String> classlist_Box;
-	
+
 	@FXML
 	private Button search;
 	@FXML
@@ -70,7 +70,7 @@ public class Controller implements Initializable {
 	private Button del_btn;
 	@FXML
 	private Button find_path_btn;
-	
+
 	ObservableList<Show_class> myList = FXCollections.observableArrayList(
 			new Show_class(new SimpleIntegerProperty(1), new SimpleStringProperty(null), new SimpleStringProperty(null),
 					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
@@ -93,6 +93,60 @@ public class Controller implements Initializable {
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
+
+		ClassInfoDB db = new ClassInfoDB();
+
+		// make init Table
+		int num = 20141095;
+		List<Map> cl = db.GetSchedule(num);
+		Map<String, String> element = cl.get(0);
+		String[][] table = new String[20][5];
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 5; j++) {
+				table[i][j] = null;
+			}
+		}
+
+		for (int i = 0; i < cl.size(); i++) {
+			element = cl.get(i);
+			String className = element.get("className");
+			String day = element.get("day");
+			int starttime = (Integer.parseInt(element.get("starttime")) - 9);
+			// 9:00 -> 0
+			float lastingtime = Float.parseFloat(element.get("lastingtime"));
+			switch (day) {
+			case "mon":
+				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
+					table[j][0] = className;
+				}
+				break;
+			case "tues":
+				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
+					table[j][1] = className;
+				}
+				break;
+			case "wed":
+				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
+					table[j][2] = className;
+				}
+				break;
+			case "thurs":
+				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
+					table[j][3] = className;
+				}
+				break;
+			case "fri":
+				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
+					table[j][4] = className;
+				}
+				break;
+			default:
+				System.out.println("day search error");
+				break;
+			}
+		}
+
+		// ClassTableView.getItems().add(e);
 		Classtime.setCellValueFactory(cellData -> cellData.getValue().getclasstime().asObject());
 		MON.setCellValueFactory(cellData -> cellData.getValue().monday());
 		TUE.setCellValueFactory(cellData -> cellData.getValue().tuesday());
@@ -101,8 +155,15 @@ public class Controller implements Initializable {
 		FRI.setCellValueFactory(cellData -> cellData.getValue().friday());
 		ClassTableView.setItems(myList);
 
-		ClassInfoDB db = new ClassInfoDB();
+		for (int i = 0; i < 20; i++) {
+			
+			ClassTableView.getItems().add(new Show_class(new SimpleIntegerProperty(i), new SimpleStringProperty(table[i][0]), new SimpleStringProperty(table[i][1]),
+					new SimpleStringProperty(table[i][2]), new SimpleStringProperty(table[i][3]), new SimpleStringProperty(table[i][4])));
+			
+		}
 
+		
+		
 		String str = "";
 
 		String sql;
@@ -114,7 +175,7 @@ public class Controller implements Initializable {
 			for (String key : current.keySet()) {
 				String value = current.get(key);
 				// System.out.println(value + "\t\t");
-				str = str +  "\t" + value;
+				str = str + "\t" + value;
 			}
 			classlist_Box.getItems().add(str);
 			str = "";
