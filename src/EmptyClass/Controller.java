@@ -96,8 +96,13 @@ public class Controller implements Initializable {
 
 		ClassInfoDB db = new ClassInfoDB();
 
+		//get student id from login
+		if(CurrentStudentInfo.studnetID.isEmpty()){
+			System.exit(-1);
+		}
+		int num = Integer.parseInt(CurrentStudentInfo.studnetID.get(0));
+
 		// make init Table
-		int num = 20141095;
 		List<Map> cl = db.GetSchedule(num);
 		Map<String, String> element = cl.get(0);
 		String[][] table = new String[20][5];

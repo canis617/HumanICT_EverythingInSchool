@@ -24,8 +24,8 @@ public class ClassInfoDB {
         //initialize DB data
         server = "15.164.26.48"; // MySQL host address
         database = "emptyclass"; // MySQL DATABASE name
-        user_name = ""; //  MySQL user name
-        password = ""; // MySQL password
+        user_name = "root"; //  MySQL user name
+        password = "emptyClassq1"; // MySQL password
     }
 
     //to set sql, get resultset from sql
@@ -165,6 +165,14 @@ public class ClassInfoDB {
         String _ID = Integer.toString(studentID);
         String sql;
         sql = String.format("select C.* from StudentInfo as P JOIN ClassInfo as C On P.classID=C.classID and P.classNum=C.classNum where P.studentID=%s",_ID);
+        List<Map> classList = GetResultMap(sql);
+        return classList;
+    }
+
+    //get student list
+    public List<Map> GetStudentList(){
+        String sql;
+        sql = String.format("select distinct studentID from StudentInfo");
         List<Map> classList = GetResultMap(sql);
         return classList;
     }
