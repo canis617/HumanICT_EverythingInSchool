@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db3f6633-044d-48ca-8d7f-e74dab799d45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/EmptyClass/CurrentStudentInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmptyClass/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyClass/LoginGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/LoginGUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmptyClass/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/GUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmptyClass/Show_class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyClass/Show_class.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -37,15 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EmptyClass/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-              <folding>
-                <element signature="e#663#664#0" expanded="true" />
-                <element signature="e#707#708#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="782">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
             </state>
           </provider>
         </entry>
@@ -99,18 +91,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EmptyClass/CurrentStudentInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-              <folding>
-                <element signature="e#145#153#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EmptyClass/GUI.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
@@ -132,14 +112,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EmptyClass/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1515">
-              <caret line="177" column="45" selection-start-line="177" selection-start-column="45" selection-end-line="177" selection-end-column="45" />
+            <state relative-caret-position="190">
+              <caret line="103" column="34" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/Initializable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -155,7 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>2</find>
       <find>01</find>
       <find>visited</find>
       <find>get</find>
@@ -185,6 +173,7 @@
       <find>num</find>
       <find>20</find>
       <find>List</find>
+      <find>HEAD</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,8 +226,8 @@
         <option value="$PROJECT_DIR$/src/EmptyClass/ClassInfoDB.java" />
         <option value="$PROJECT_DIR$/src/EmptyClass/Login.java" />
         <option value="$PROJECT_DIR$/src/EmptyClass/CurrentStudentInfo.java" />
-        <option value="$PROJECT_DIR$/src/EmptyClass/Controller.java" />
         <option value="$PROJECT_DIR$/src/EmptyClass/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/EmptyClass/Controller.java" />
       </list>
     </option>
   </component>
@@ -341,15 +330,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workSpace\intelliJ-workspace\EmptyClass\src\EmptyClass" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workSpace\intelliJ-workspace\EmptyClass\img" />
+      <recent name="D:\workSpace\intelliJ-workspace\EmptyClass" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="EmptyClass" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\workSpace\intelliJ-workspace\EmptyClass\img" />
-      <recent name="D:\workSpace\intelliJ-workspace\EmptyClass" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workSpace\intelliJ-workspace\EmptyClass\src\EmptyClass" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -469,7 +458,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89655000" />
+    <option name="totallyTimeSpent" value="89696000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,13 +555,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/jre/lib/rt.jar!/sun/tools/jar/Main.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/jar/Manifest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -838,16 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EmptyClass/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="177" column="45" selection-start-line="177" selection-start-column="45" selection-end-line="177" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/scene/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -906,11 +878,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EmptyClass/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="782">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/Initializable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EmptyClass/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="103" column="34" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="34" />
           <folding>
-            <element signature="e#663#664#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

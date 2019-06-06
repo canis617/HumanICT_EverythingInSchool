@@ -20,12 +20,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="add_btn" mnemonicParsing="false" onAction="#print123" prefHeight="134.0" prefWidth="290.0" text="Add">
+            <Button fx:id="add_btn" mnemonicParsing="false" onAction="#add_btn" prefHeight="134.0" prefWidth="290.0" text="Add">
                <GridPane.margin>
                   <Insets bottom="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="del_btn" mnemonicParsing="false" prefHeight="134.0" prefWidth="199.0" text="Delete" GridPane.rowIndex="1">
+            <Button fx:id="del_btn" mnemonicParsing="false" onAction="#del_btn" prefHeight="134.0" prefWidth="199.0" text="Delete" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" top="5.0" />
                </GridPane.margin>
