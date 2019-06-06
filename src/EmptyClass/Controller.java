@@ -71,34 +71,15 @@ public class Controller implements Initializable {
 	@FXML
 	private Button find_path_btn;
 
-	ObservableList<Show_class> myList = FXCollections.observableArrayList(
-//			new Show_class(new SimpleIntegerProperty(1), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(2), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(3), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(4), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(5), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(6), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(7), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(8), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-//			new Show_class(new SimpleIntegerProperty(9), new SimpleStringProperty(null), new SimpleStringProperty(null),
-//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null))
-	);
+	ObservableList<Show_class> myList = FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
 		ClassInfoDB db = new ClassInfoDB();
 
-		//get student id from login
-		if(CurrentStudentInfo.studnetID.isEmpty()){
+		// get student id from login
+		if (CurrentStudentInfo.studnetID.isEmpty()) {
 			System.exit(-1);
 		}
 		int num = Integer.parseInt(CurrentStudentInfo.studnetID.get(0));
@@ -113,12 +94,6 @@ public class Controller implements Initializable {
 		}
 
 		table = return_table(table, cl);
-//		for (int i = 0; i < 20; i++) {
-//			for (int j = 0; j < 5; j++) {
-//				System.out.print(table[i][j] + "\t");
-//			}
-//			System.out.println("");
-//		}
 
 		Classtime.setCellValueFactory(cellData -> cellData.getValue().getclasstime());
 		MON.setCellValueFactory(cellData -> cellData.getValue().monday());
@@ -158,18 +133,30 @@ public class Controller implements Initializable {
 		}
 	}
 
-	public String[][] return_table(String[][] table, List<Map> cl) {
+	public boolean check_readd(String classID, List<Map> cl) {
+		Map<String, String> element;
 
+		for (int i = 0; i < cl.size(); i++) {
+			element = cl.get(i);
+			String id = element.get("classID");
+			if (id.equals(classID))
+				return false;
+		}
+
+		return true;
+	}
+
+	public String[][] return_table(String[][] table, List<Map> cl) {
 		Map<String, String> element = cl.get(0);
 
 		for (int i = 0; i < cl.size(); i++) {
 			element = cl.get(i);
 			String className = element.get("className");
 			String day = element.get("day");
-			int starttime = (int) (Float.parseFloat(element.get("starttime")) - 9);
+			int starttime = (int) ((Float.parseFloat(element.get("starttime")) - 9) * 2);
 			// 9:00 -> 0
 			float lastingtime = Float.parseFloat(element.get("lastingtime"));
-
+			// System.out.println(className + " " + starttime + " " + lastingtime);
 			switch (day) {
 			case "mon":
 				for (int j = 0; j < (lastingtime * 2); j++) {
@@ -201,31 +188,86 @@ public class Controller implements Initializable {
 				break;
 			}
 		}
+
+//		for (int i = 0; i < 10; i++) {
+//			for (int j = 0; j < 5; j++) {
+//				System.out.print(table[i][j] + "\t");
+//			}
+//			System.out.println("");
+//		}
 		return table;
 	}
 
 	@FXML
 	void add_btn(ActionEvent event) {
+		ClassInfoDB db = new ClassInfoDB();
+		int num = Integer.parseInt(CurrentStudentInfo.studnetID.get(0));
+
 		String str[] = new String[8];
 		String line = classlist_Box.getValue();
-		
+
 		if (line == null) {
 			System.out.println("null");
 		} else {
 			str = line.split("\t");
-			System.out.println(str[1]);
-			
-			
+			// str[1] = classID
+			// str[4] = classNum
+			System.out.println(num + " " + str[1] + " " + str[4]);
+
+			List<Map> cl = db.GetSchedule(num);
+
+			if (check_readd(str[1], cl)) {
+				try {
+					db.SetSchedule(Integer.parseInt(CurrentStudentInfo.studnetID.get(0)), Integer.parseInt(str[1]),
+							Integer.parseInt(str[4]));
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			} else {
+				System.out.println("re add!");
+			}
+
+			String[][] table = new String[20][5];
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 5; j++) {
+					table[i][j] = null;
+				}
+			}
+
+			table = return_table(table, cl);
+
+			myList.removeAll(myList);
+
+			Classtime.setCellValueFactory(cellData -> cellData.getValue().getclasstime());
+			MON.setCellValueFactory(cellData -> cellData.getValue().monday());
+			TUE.setCellValueFactory(cellData -> cellData.getValue().tuesday());
+			WED.setCellValueFactory(cellData -> cellData.getValue().wednesday());
+			THU.setCellValueFactory(cellData -> cellData.getValue().thursday());
+			FRI.setCellValueFactory(cellData -> cellData.getValue().friday());
+			ClassTableView.setItems(myList);
+
+			for (int i = 0; i < 20; i++) {
+				String j;
+				if (i % 2 == 0) {
+					j = Integer.toString(9 + i / 2);
+				} else {
+					j = null;
+				}
+
+				ClassTableView.getItems()
+						.add(new Show_class(new SimpleStringProperty(j), new SimpleStringProperty(table[i][0]),
+								new SimpleStringProperty(table[i][1]), new SimpleStringProperty(table[i][2]),
+								new SimpleStringProperty(table[i][3]), new SimpleStringProperty(table[i][4])));
+			}
+
 		}
 	}
 
-	
 	@FXML
 	void del_btn(ActionEvent event) {
 
 	}
 
-	
 	@FXML
 	void find_path_btn(ActionEvent event) {
 		try {
