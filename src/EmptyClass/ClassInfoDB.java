@@ -169,6 +169,14 @@ public class ClassInfoDB {
         return classList;
     }
 
+    //get student list
+    public List<Map> GetStudentList(){
+        String sql;
+        sql = String.format("select distinct studentID from StudentInfo");
+        List<Map> classList = GetResultMap(sql);
+        return classList;
+    }
+
     public boolean SetSchedule(int studentID, int classID, int classNum){
         if(studentID < 0 || studentID > 100000000 || classID <0 || classID > 100000 || classNum <0){
             throw new IllegalArgumentException("schedule data error");
