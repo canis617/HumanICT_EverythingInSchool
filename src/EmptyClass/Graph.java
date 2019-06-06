@@ -11,7 +11,7 @@ public class Graph {
 		this.floortail = null;
 	}
 
-	// floor 추가
+	// floor 異붽�
 	public void add_floor(String floor_name) throws IOException {
 		Floor floor = new Floor(floor_name);
 		try {
@@ -37,7 +37,7 @@ public class Graph {
 	}
 
 	// read down_floor.txt
-	public Floor add_down_floor(String start_floor, String end_floor) throws IOException {
+	public Floor add_down_floor(String start_floor, String end_floor, boolean comfort) throws IOException {
 		String filename = "data/down_floor.txt";
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		String line = null;
@@ -48,6 +48,11 @@ public class Graph {
 			int num = 0;
 			str = line.split("/");
 			num = Integer.parseInt(str[2]);
+			if(comfort) {
+				if(str[0].charAt(1) == 's' && str[1].charAt(1) == 's') {
+					num+=100;
+				}
+			}
 			add_updown_edge(str[0], str[1], num, start_floor, end_floor, floor);
 		}
 
@@ -56,7 +61,7 @@ public class Graph {
 	}
 
 	// read up_floor.txt
-	public Floor add_up_floor(String start_floor, String end_floor) throws IOException {
+	public Floor add_up_floor(String start_floor, String end_floor, boolean comfort) throws IOException {
 		String filename = "data/up_floor.txt";
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		String line = null;
@@ -67,6 +72,11 @@ public class Graph {
 			int num = 0;
 			str = line.split("/");
 			num = Integer.parseInt(str[2]);
+			if(comfort) {
+				if(str[0].charAt(1) == 's' && str[1].charAt(1) == 's') {
+					num+=100;
+				}
+			}
 			add_updown_edge(str[0], str[1], num, start_floor, end_floor, floor);
 		}
 
@@ -80,16 +90,16 @@ public class Graph {
 			throw new IllegalArgumentException("input is null");
 		}
 		Facility f;
-		if (start_floor.charAt(0) == start.charAt(0)) { // 출발 층 안에 있는 경우
+		if (start_floor.charAt(0) == start.charAt(0)) { // 異쒕컻 痢� �븞�뿉 �엳�뒗 寃쎌슦
 			f = this.getFloor(start_floor).getFacility(start);
 			f.addEdge(end, time_weight, 0);
-		} else if (end_floor.charAt(0) == start.charAt(0)) { // 도착 층 안에 있는 경우
+		} else if (end_floor.charAt(0) == start.charAt(0)) { // �룄李� 痢� �븞�뿉 �엳�뒗 寃쎌슦
 			f = this.getFloor(end_floor).getFacility(start);
 			f.addEdge(end, time_weight, 0);
-		} else { // mid floor에 facility, edge 추가
+		} else { // mid floor�뿉 facility, edge 異붽�
 			boolean again = false;
 			Facility fl = floor.head;
-			while(fl!=null) { // 중복으로 추가되는 경우 방지
+			while(fl!=null) { // 以묐났�쑝濡� 異붽��릺�뒗 寃쎌슦 諛⑹�
 				if(fl.getName().equals(start)) {
 					again = true;
 					break;
@@ -100,7 +110,7 @@ public class Graph {
 					break;
 				}
 			}
-			if(!again) { // 중복이 없으면 노드 추가
+			if(!again) { // 以묐났�씠 �뾾�쑝硫� �끂�뱶 異붽�
 				floor.addFacility(start);
 			}
 			f = floor.getFacility(start);
@@ -108,7 +118,7 @@ public class Graph {
 		}
 	}
 
-	// name에 해당되는 floor 반환
+	// name�뿉 �빐�떦�릺�뒗 floor 諛섑솚
 	public Floor getFloor(String floor) {
 		Floor temp = floorhead;
 		if (temp.get_floor_num().equals(floor)) {
@@ -150,6 +160,6 @@ public class Graph {
 		}
 
 		FindPath fp = new FindPath(g);
-		fp.find_path("Dc학생식당", "7c720");
+		fp.find_path("DcSTORE", "7c720", false);
 	}
 }
