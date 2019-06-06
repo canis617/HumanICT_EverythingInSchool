@@ -24,8 +24,8 @@ public class ClassInfoDB {
         //initialize DB data
         server = "15.164.26.48"; // MySQL host address
         database = "emptyclass"; // MySQL DATABASE name
-        user_name = "root"; //  MySQL user name
-        password = "emptyClassq1"; // MySQL password
+        user_name = ""; //  MySQL user name
+        password = ""; // MySQL password
     }
 
     //to set sql, get resultset from sql
@@ -164,7 +164,7 @@ public class ClassInfoDB {
         }
         String _ID = Integer.toString(studentID);
         String sql;
-        sql = String.format("select C.* from PersonalSchedule as P JOIN ClassInfo as C On P.classID=C.classID and P.classNum=C.classNum where P.studentID=%s",_ID);
+        sql = String.format("select C.* from StudentInfo as P JOIN ClassInfo as C On P.classID=C.classID and P.classNum=C.classNum where P.studentID=%s",_ID);
         List<Map> classList = GetResultMap(sql);
         return classList;
     }
@@ -178,7 +178,7 @@ public class ClassInfoDB {
         String _CNum = Integer.toString(classNum);
         String sql;
         boolean success = false;
-        sql = String.format("insert into PersonalSchedule values('%s', %s, %s)",_ID, _CID,_CNum);
+        sql = String.format("insert into StudentInfo values('%s', %s, %s)",_ID, _CID,_CNum);
         try {
             success = SetData(sql);
         } catch(Exception e){
@@ -253,7 +253,7 @@ public class ClassInfoDB {
 
         ClassInfoDB testDB = new ClassInfoDB();
 
-        // 1.�뱶�씪�씠踰� 濡쒕뵫
+        // 1. connect Mysql class
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -261,7 +261,7 @@ public class ClassInfoDB {
             e.printStackTrace();
         }
 
-        // 2.�뿰寃�
+        // 2. connect db
         try {
             con = DriverManager.getConnection("jdbc:mysql://" + testDB.GetServer() + "/" + testDB.GetDataBase() +
                     "?useSSL=false", testDB.GetUserName(), testDB.GetPassword());
@@ -272,7 +272,7 @@ public class ClassInfoDB {
             e.printStackTrace();
         }
 
-        // 3.�빐�젣
+        // 3. unit test
         try {
             if(con != null)
                 con.close();
@@ -288,7 +288,7 @@ public class ClassInfoDB {
             List<Map> tempList = test.GetEmptyClass(310, "mon", 12);
 
             //get student's class list
-            List<Map> studentClassList = test.GetSchedule(20150864);
+            List<Map> studentClassList = test.GetSchedule(20150101);
             test.PrintListMap(studentClassList);
 
             try {
