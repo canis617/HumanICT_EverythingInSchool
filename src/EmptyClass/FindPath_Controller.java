@@ -67,7 +67,7 @@ public class FindPath_Controller implements Initializable {
 		}
 		
 		FindPath fp = new FindPath(g);
-		Stack<Edge> result = fp.find_path(start, arrive);
+		Stack<Edge> result = fp.find_path(start, arrive, false);
 		Edge tempEdge;
 		for(int i = 0; !result.empty();i++){
 			tempEdge = result.pop();
