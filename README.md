@@ -19,7 +19,6 @@ It is not difficult for existing students to move in the school according to the
 ### Description
 
 It is not difficult for existing students to move in the school according to their schedule or other schedule, but they are often ineffective in using the classrooms and facilities if they do not attend class or visit the school for a long time. Students will be able to adapt to the school more easily if they are provided with information on where to go after class and when class hours are empty.
-<<<<<<< HEAD
 
 ### How to Use
 
