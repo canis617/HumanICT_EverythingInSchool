@@ -25,7 +25,7 @@ public class ClassInfoDB {
         server = "15.164.26.48"; // MySQL host address
         database = "emptyclass"; // MySQL DATABASE name
         user_name = "root"; //  MySQL user name
-        password = ""; // MySQL password
+        password = "emptyClassq1"; // MySQL password
     }
 
     //to set sql, get resultset from sql
