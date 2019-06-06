@@ -41,7 +41,7 @@ public class Controller implements Initializable {
 	@FXML
 	private TableView<Show_class> ClassTableView;
 	@FXML
-	private TableColumn<Show_class, Integer> Classtime;
+	private TableColumn<Show_class, String> Classtime;
 	@FXML
 	private TableColumn<Show_class, String> MON;
 	@FXML
@@ -72,24 +72,25 @@ public class Controller implements Initializable {
 	private Button find_path_btn;
 
 	ObservableList<Show_class> myList = FXCollections.observableArrayList(
-			new Show_class(new SimpleIntegerProperty(1), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(2), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(3), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(4), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(5), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(6), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(7), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(8), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
-			new Show_class(new SimpleIntegerProperty(9), new SimpleStringProperty(null), new SimpleStringProperty(null),
-					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)));
+//			new Show_class(new SimpleIntegerProperty(1), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(2), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(3), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(4), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(5), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(6), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(7), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(8), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null)),
+//			new Show_class(new SimpleIntegerProperty(9), new SimpleStringProperty(null), new SimpleStringProperty(null),
+//					new SimpleStringProperty(null), new SimpleStringProperty(null), new SimpleStringProperty(null))
+	);
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
@@ -97,9 +98,8 @@ public class Controller implements Initializable {
 		ClassInfoDB db = new ClassInfoDB();
 
 		// make init Table
-		int num = 20141095;
+		int num = 20150864;
 		List<Map> cl = db.GetSchedule(num);
-		Map<String, String> element = cl.get(0);
 		String[][] table = new String[20][5];
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 5; j++) {
@@ -107,47 +107,15 @@ public class Controller implements Initializable {
 			}
 		}
 
-		for (int i = 0; i < cl.size(); i++) {
-			element = cl.get(i);
-			String className = element.get("className");
-			String day = element.get("day");
-			int starttime = (Integer.parseInt(element.get("starttime")) - 9);
-			// 9:00 -> 0
-			float lastingtime = Float.parseFloat(element.get("lastingtime"));
-			switch (day) {
-			case "mon":
-				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
-					table[j][0] = className;
-				}
-				break;
-			case "tues":
-				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
-					table[j][1] = className;
-				}
-				break;
-			case "wed":
-				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
-					table[j][2] = className;
-				}
-				break;
-			case "thurs":
-				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
-					table[j][3] = className;
-				}
-				break;
-			case "fri":
-				for (int j = 0; j < (lastingtime * 2 + starttime); j++) {
-					table[j][4] = className;
-				}
-				break;
-			default:
-				System.out.println("day search error");
-				break;
-			}
-		}
+		table = return_table(table, cl);
+//		for (int i = 0; i < 20; i++) {
+//			for (int j = 0; j < 5; j++) {
+//				System.out.print(table[i][j] + "\t");
+//			}
+//			System.out.println("");
+//		}
 
-		// ClassTableView.getItems().add(e);
-		Classtime.setCellValueFactory(cellData -> cellData.getValue().getclasstime().asObject());
+		Classtime.setCellValueFactory(cellData -> cellData.getValue().getclasstime());
 		MON.setCellValueFactory(cellData -> cellData.getValue().monday());
 		TUE.setCellValueFactory(cellData -> cellData.getValue().tuesday());
 		WED.setCellValueFactory(cellData -> cellData.getValue().wednesday());
@@ -156,14 +124,19 @@ public class Controller implements Initializable {
 		ClassTableView.setItems(myList);
 
 		for (int i = 0; i < 20; i++) {
-			
-			ClassTableView.getItems().add(new Show_class(new SimpleIntegerProperty(i), new SimpleStringProperty(table[i][0]), new SimpleStringProperty(table[i][1]),
-					new SimpleStringProperty(table[i][2]), new SimpleStringProperty(table[i][3]), new SimpleStringProperty(table[i][4])));
-			
+			String j;
+			if (i % 2 == 0) {
+				j = Integer.toString(9 + i / 2);
+			} else {
+				j = null;
+			}
+			ClassTableView.getItems()
+					.add(new Show_class(new SimpleStringProperty(j), new SimpleStringProperty(table[i][0]),
+							new SimpleStringProperty(table[i][1]), new SimpleStringProperty(table[i][2]),
+							new SimpleStringProperty(table[i][3]), new SimpleStringProperty(table[i][4])));
+
 		}
 
-		
-		
 		String str = "";
 
 		String sql;
@@ -182,10 +155,66 @@ public class Controller implements Initializable {
 		}
 	}
 
+	public String[][] return_table(String[][] table, List<Map> cl) {
+
+		Map<String, String> element = cl.get(0);
+
+		for (int i = 0; i < cl.size(); i++) {
+			element = cl.get(i);
+			String className = element.get("className");
+			String day = element.get("day");
+			int starttime = (int) (Float.parseFloat(element.get("starttime")) - 9);
+			// 9:00 -> 0
+			float lastingtime = Float.parseFloat(element.get("lastingtime"));
+
+			switch (day) {
+			case "mon":
+				for (int j = 0; j < (lastingtime * 2); j++) {
+					table[starttime + j][0] = className;
+				}
+				break;
+			case "tues":
+				for (int j = 0; j < (lastingtime * 2); j++) {
+					table[starttime + j][1] = className;
+				}
+				break;
+			case "wed":
+				for (int j = 0; j < (lastingtime * 2); j++) {
+					table[starttime + j][2] = className;
+				}
+				break;
+			case "thurs":
+				for (int j = 0; j < (lastingtime * 2); j++) {
+					table[starttime + j][3] = className;
+				}
+				break;
+			case "fri":
+				for (int j = 0; j < (lastingtime * 2); j++) {
+					table[starttime + j][4] = className;
+				}
+				break;
+			default:
+				System.out.println("day search error");
+				break;
+			}
+		}
+		return table;
+	}
+
 	public void print123(ActionEvent event) {
 		System.out.println(123);
 	}
 
+	@FXML
+	void add_btn(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	void del_btn(ActionEvent event) {
+		
+	}
+	
 	@FXML
 	void find_path_btn(ActionEvent event) {
 		try {

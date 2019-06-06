@@ -4,14 +4,14 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
 public class Show_class {
-	private IntegerProperty ct;
+	private StringProperty ct;
 	private StringProperty mon;
 	private StringProperty tue;
 	private StringProperty wed;
 	private StringProperty thu;
 	private StringProperty fri;
 
-	public Show_class(IntegerProperty ct, StringProperty mon, StringProperty tue, StringProperty wed, StringProperty thu,
+	public Show_class(StringProperty ct, StringProperty mon, StringProperty tue, StringProperty wed, StringProperty thu,
 			StringProperty fri) {
 		this.ct = ct;
 		this.mon = mon;
@@ -21,7 +21,7 @@ public class Show_class {
 		this.fri = fri;
 	}
 
-	public IntegerProperty getclasstime() {
+	public StringProperty getclasstime() {
 		return ct;
 	}
 	
