@@ -134,11 +134,9 @@ public class Controller implements Initializable {
 					.add(new Show_class(new SimpleStringProperty(j), new SimpleStringProperty(table[i][0]),
 							new SimpleStringProperty(table[i][1]), new SimpleStringProperty(table[i][2]),
 							new SimpleStringProperty(table[i][3]), new SimpleStringProperty(table[i][4])));
-
 		}
 
 		String str = "";
-
 		String sql;
 		sql = String.format("select * from ClassInfo where building=310 order by room");
 		List<Map> allClass = db.GetResultMap(sql);
@@ -201,19 +199,27 @@ public class Controller implements Initializable {
 		return table;
 	}
 
-	public void print123(ActionEvent event) {
-		System.out.println(123);
-	}
-
 	@FXML
 	void add_btn(ActionEvent event) {
+		String str[] = new String[8];
+		String line = classlist_Box.getValue();
 		
+		if (line == null) {
+			System.out.println("null");
+		} else {
+			str = line.split("\t");
+			System.out.println(str[1]);
+			
+			
+		}
 	}
+
 	
 	@FXML
 	void del_btn(ActionEvent event) {
-		
+
 	}
+
 	
 	@FXML
 	void find_path_btn(ActionEvent event) {
