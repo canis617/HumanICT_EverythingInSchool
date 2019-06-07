@@ -133,14 +133,35 @@ public class Controller implements Initializable {
 		}
 	}
 
-	public boolean check_readd(String classID, List<Map> cl) {
+	public boolean check_readd(String line, List<Map> cl) {
 		Map<String, String> element;
+		String str[] = new String[8];
+		str = line.split("\t");
+		// str[2] = lastingtime
+		// str[5] = starttime
+		// str[6] = day
+		float new_starttime = Float.parseFloat(str[5]);
+		float new_lastingtime = Float.parseFloat(str[2]);
+		float new_bound = new_starttime + new_lastingtime;
 
 		for (int i = 0; i < cl.size(); i++) {
 			element = cl.get(i);
 			String id = element.get("classID");
-			if (id.equals(classID))
+			String day = element.get("day");
+			float starttime = Float.parseFloat(element.get("starttime"));
+			float lasttingtime = Float.parseFloat(element.get("lastingtime"));
+			float bound = starttime + lasttingtime;
+
+			if (id.equals(str[1])) {
+				System.out.println("re name add");
 				return false;
+			}
+			if (day.equals(str[6])) {
+				if( !(new_bound <= starttime || bound <= new_starttime) )  {
+					System.out.println("re time add");
+					return false;
+				}
+			}
 		}
 
 		return true;
@@ -207,16 +228,15 @@ public class Controller implements Initializable {
 		String line = classlist_Box.getValue();
 
 		if (line == null) {
-			System.out.println("null");
+			System.out.println("add button input is null");
 		} else {
 			str = line.split("\t");
 			// str[1] = classID
 			// str[4] = classNum
-			System.out.println(num + " " + str[1] + " " + str[4]);
 
 			List<Map> cl = db.GetSchedule(num);
 
-			if (check_readd(str[1], cl)) {
+			if (check_readd(line, cl)) {
 				try {
 					db.SetSchedule(Integer.parseInt(CurrentStudentInfo.studnetID.get(0)), Integer.parseInt(str[1]),
 							Integer.parseInt(str[4]));
@@ -224,7 +244,7 @@ public class Controller implements Initializable {
 					System.out.println(e.getMessage());
 				}
 			} else {
-				System.out.println("re add!");
+				System.out.println("add reject!");
 			}
 
 			String[][] table = new String[20][5];
@@ -233,7 +253,7 @@ public class Controller implements Initializable {
 					table[i][j] = null;
 				}
 			}
-
+			cl = db.GetSchedule(num);
 			table = return_table(table, cl);
 
 			myList.removeAll(myList);
