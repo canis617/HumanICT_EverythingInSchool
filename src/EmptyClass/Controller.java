@@ -56,7 +56,7 @@ public class Controller implements Initializable {
 	@FXML
 	private TextField classname_label;
 	@FXML
-	private TextField classday_label;
+	private ChoiceBox<String> classday_label;
 	@FXML
 	private TextField classtime_label;
 	@FXML
@@ -133,6 +133,12 @@ public class Controller implements Initializable {
 			classlist_Box.getItems().add(str);
 			str = "";
 		}
+		classday_label.getItems().add(null);
+		classday_label.getItems().add("mon");
+		classday_label.getItems().add("tues");
+		classday_label.getItems().add("wed");
+		classday_label.getItems().add("thurs");
+		classday_label.getItems().add("fri");
 	}
 
 	public boolean check_readd(String line, List<Map> cl) {
@@ -159,7 +165,7 @@ public class Controller implements Initializable {
 				return false;
 			}
 			if (day.equals(str[6])) {
-				if( !(new_bound <= starttime || bound <= new_starttime) )  {
+				if (!(new_bound <= starttime || bound <= new_starttime)) {
 					System.out.println("re time add");
 					return false;
 				}
@@ -288,12 +294,12 @@ public class Controller implements Initializable {
 	@FXML
 	void del_btn(ActionEvent event) {
 		String str = delete_name.getText();
-		if(str.equals("")) {
+		if (str.equals("")) {
 			System.out.println("no input delete name!");
-		}else {
+		} else {
 			ClassInfoDB db = new ClassInfoDB();
 			db.DeleteSchedule(CurrentStudentInfo.studnetID.get(0), str);
-			
+
 			String[][] table = new String[20][5];
 			for (int i = 0; i < 10; i++) {
 				for (int j = 0; j < 5; j++) {
@@ -328,8 +334,58 @@ public class Controller implements Initializable {
 								new SimpleStringProperty(table[i][1]), new SimpleStringProperty(table[i][2]),
 								new SimpleStringProperty(table[i][3]), new SimpleStringProperty(table[i][4])));
 			}
+
+		}
+	}
+
+	@FXML
+	void select(ActionEvent event) {
+		String classname = classname_label.getText();
+		String classday = classday_label.getValue();
+		String classtime = classtime_label.getText();
+		String sql = String.format("select * from ClassInfo where building=310 order by room");
+		
+		if (classname.equals("") && (classday==null) && classtime.equals("")) {
+			System.out.println("don't have search input");
+		} else {
+			if (!classname.equals("") && (classday==null) && classtime.equals("")) { // only classname
+				sql = String.format("select * from ClassInfo where building=310 and className='%s' order by room",
+						classname);
+			} else if (classname.equals("") && !(classday==null) && classtime.equals("")) { // only day
+				sql = String.format("select * from ClassInfo where building=310 and day='%s' order by room", classday);
+			} else if (classname.equals("") && (classday==null) && !classtime.equals("")) { // only classtime
+				sql = String.format("select * from ClassInfo where building=310 and starttime='%s' order by room",
+						classtime);
+			} else if(!classname.equals("") && !(classday==null) && classtime.equals("")) { // classname, classday
+				sql = String.format("select * from ClassInfo where building=310 and className='%s' and day='%s' order by room",
+						classname, classday);
+			} else if(!classname.equals("") && (classday==null) && !classtime.equals("")) { // classname, classtime
+				sql = String.format("select * from ClassInfo where building=310 and className='%s' and starttime='%s' order by room",
+						classname, classtime);
+			} else if(classname.equals("") && !(classday==null) && !classtime.equals("")) { // classday, classtime
+				sql = String.format("select * from ClassInfo where building=310 and day='%s' and starttime='%s' order by room",
+						classday, classtime);
+			} else if(!classname.equals("") && !(classday==null) && !classtime.equals("")) { // classname, classday, classtime
+				sql = String.format("select * from ClassInfo where building=310 and className='%s' and day='%s' and starttime='%s' order by room",
+						classname, classday, classtime);
+			}
 			
-			
+			ClassInfoDB db = new ClassInfoDB();
+
+			String str = "";
+			List<Map> allClass = db.GetResultMap(sql);
+			Map<String, String> current = allClass.get(0);
+			classlist_Box.getItems().clear();
+			for (int i = 0; i < allClass.size(); i++) {
+				current = allClass.get(i);
+				for (String key : current.keySet()) {
+					String value = current.get(key);
+					// System.out.println(value + "\t\t");
+					str = str + "\t" + value;
+				}
+				classlist_Box.getItems().add(str);
+				str = "";
+			}
 		}
 	}
 
