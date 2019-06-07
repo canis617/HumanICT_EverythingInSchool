@@ -67,6 +67,8 @@ public class Controller implements Initializable {
 	@FXML
 	private Button add_btn;
 	@FXML
+	private TextField delete_name;
+	@FXML
 	private Button del_btn;
 	@FXML
 	private Button find_path_btn;
@@ -285,7 +287,50 @@ public class Controller implements Initializable {
 
 	@FXML
 	void del_btn(ActionEvent event) {
+		String str = delete_name.getText();
+		if(str.equals("")) {
+			System.out.println("no input delete name!");
+		}else {
+			ClassInfoDB db = new ClassInfoDB();
+			db.DeleteSchedule(CurrentStudentInfo.studnetID.get(0), str);
+			
+			String[][] table = new String[20][5];
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 5; j++) {
+					table[i][j] = null;
+				}
+			}
+			int num = Integer.parseInt(CurrentStudentInfo.studnetID.get(0));
+			List<Map> cl = db.GetSchedule(num);
+			cl = db.GetSchedule(num);
+			table = return_table(table, cl);
 
+			myList.removeAll(myList);
+
+			Classtime.setCellValueFactory(cellData -> cellData.getValue().getclasstime());
+			MON.setCellValueFactory(cellData -> cellData.getValue().monday());
+			TUE.setCellValueFactory(cellData -> cellData.getValue().tuesday());
+			WED.setCellValueFactory(cellData -> cellData.getValue().wednesday());
+			THU.setCellValueFactory(cellData -> cellData.getValue().thursday());
+			FRI.setCellValueFactory(cellData -> cellData.getValue().friday());
+			ClassTableView.setItems(myList);
+
+			for (int i = 0; i < 20; i++) {
+				String j;
+				if (i % 2 == 0) {
+					j = Integer.toString(9 + i / 2);
+				} else {
+					j = null;
+				}
+
+				ClassTableView.getItems()
+						.add(new Show_class(new SimpleStringProperty(j), new SimpleStringProperty(table[i][0]),
+								new SimpleStringProperty(table[i][1]), new SimpleStringProperty(table[i][2]),
+								new SimpleStringProperty(table[i][3]), new SimpleStringProperty(table[i][4])));
+			}
+			
+			
+		}
 	}
 
 	@FXML
