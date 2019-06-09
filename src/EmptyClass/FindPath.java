@@ -58,11 +58,11 @@ public class FindPath {
 			}
 		}
 //result path debuging
-		for (int i = 0; !result.empty(); i++) {
-			Edge tempEdge = result.pop();
-			System.out.println(
-					tempEdge.get_edge_start() + " -> " + tempEdge.get_edge_end() + " = " + tempEdge.get_time_weight());
-		}
+//		for (int i = 0; !result.empty(); i++) {
+//			Edge tempEdge = result.pop();
+//			System.out.println(
+//					tempEdge.get_edge_start() + " -> " + tempEdge.get_edge_end() + " = " + tempEdge.get_time_weight());
+//		}
 
 		return result;
 	}
