@@ -5,6 +5,132 @@ public class Replace{
 		private String object;
 		private String number;
 	 
+		public String Replace(String floor, String number) {
+			String ob = null;
+			switch(floor) {
+			case "9":
+				switch(number) {
+				case "1": ob = "층 928호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 901호 앞 엘리베이터";
+					break;
+				case "3": ob = "층 925호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "8":
+				switch(number) {
+				case "1": ob = "층 826호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 801호 앞 엘리베이터";
+					break;
+				case "3": ob = "층 823호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "7":
+				switch(number) {
+				case "1": ob = "층 729호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 701호 앞 엘리베이터";
+					break;
+				case "3": ob = "층 726호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "6":
+				switch(number) {
+				case "1": ob = "층 619호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 602호 앞 엘리베이터";
+					break;
+				case "3": ob = "층 616호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "5":
+				switch(number) {
+				case "1": ob = "층 520호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 502호 앞 엘리베이터";
+					break;
+				case "3": ob = "층 517호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "4":
+				switch(number) {
+				case "1": ob = "층 420호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 402호 앞 엘리베이터";
+					break;
+				case "3": ob = "층 417호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "3":
+				switch(number) {
+				case "1": ob = "층 318호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 301호 앞 엘리베이터";
+					break;
+				case "3": ob = "층 315호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "2":
+				switch(number) {
+				case "1": ob = "층 201호 앞 엘리베이터";
+					break;
+				case "2": ob = "층 Creative Complex 앞 엘리베이터";
+					break;
+				case "3": ob = "층 204호 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "1":
+				switch(number) {
+				case "1": ob = "층 기숙사 방향 출입문쪽 엘리베이터";
+					break;
+				case "2": ob = "층 중앙계단 옆 엘리베이터";
+					break;
+				case "3": ob = "층 후문 방향 출입문쪽 엘리베이터";
+					break;
+				}
+				break;
+			case "지하 4":
+				switch(number) {
+				case "1": ob = "층 편의점 앞 엘리베이터";
+					break;
+				}
+				break;
+			case "지하 3":
+				switch(number) {
+				case "1": ob = "층 B306호 옆 엘리베이터";
+					break;
+				case "2": ob = "층 에스컬레이터 옆 엘리베이터";
+					break;
+				}
+				break;
+			case "지하 2":
+				switch(number) {
+				case "1": ob = "층 B208호 옆 엘리베이터";
+					break;
+				case "2": ob = "층 출입문쪽 엘리베이터";
+					break;
+				}
+				break;
+			case "지하 1":
+				switch(number) {
+				case "1": ob = "층 B113호 옆 엘리베이터";
+					break;
+				case "2": ob = "층 에스컬레이터 옆 엘리베이터";
+					break;
+				}
+				break;
+			}
+			return ob;
+		}
 	    public String Replace(String name){  
 			// name = floor + object + number (7c729 = 7+c+729)
 	    	String new_facility;
@@ -26,7 +152,10 @@ public class Replace{
 	   		}
 	    	
 	    	switch(object) {
-	    	case "e": object = "층 엘리베이터";
+	    	case "e": //object = "층 엘리베이터";
+	    		Replace r = new Replace();
+	    		object = r.Replace(floor, number);
+	    		number = "";
 	    		break;
 	    	case "s": object = "층 계단";
 	    		break;
