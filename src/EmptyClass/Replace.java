@@ -1,52 +1,82 @@
 package EmptyClass;
 
 public class Replace{
-	// facility = floor + object + number (7c729 = 7+c+729)
-		
 		private String floor;
 		private String object;
 		private String number;
 	 
-	    public String Replace(String name){        
+	    public String Replace(String name){  
+			// name = floor + object + number (7c729 = 7+c+729)
 	    	String new_facility;
-	    	floor = name.substring(0,1);	// Ã³À½ ¹®ÀÚ´Â Ç×»ó Ãş¼ö
-	    	object = name.substring(1,2);	// Ã³À½ ´ÙÀ½ ¹®ÀÚ´Â Ç×»ó ¾î¶² ÇüÅÂÀÎÁö (ex. /e/s/t/i/c)
-	    	number = name.substring(2);		// ±× ÀÌÈÄ ¹®ÀÚ
+	    	floor = name.substring(0,1);	// ì²˜ìŒ ë¬¸ìëŠ” í•­ìƒ ì¸µìˆ˜
+	    	object = name.substring(1,2);	// ì²˜ìŒ ë‹¤ìŒ ë¬¸ìëŠ” í•­ìƒ ì–´ë–¤ í˜•íƒœì¸ì§€ (ex. /e/s/t/i/c)
+	    	number = name.substring(2);		// ê·¸ ì´í›„ ë¬¸ì
 	    	
 	    	switch(floor) {
-	    	case "D": floor = "ÁöÇÏ 4";
+	    	case "D": floor = "ì§€í•˜ 4";
 	   			break;
-	   		case "C": floor = "ÁöÇÏ 3";
+	   		case "C": floor = "ì§€í•˜ 3";
 	   			break;
-	   		case "B": floor = "ÁöÇÏ 2";
+	   		case "B": floor = "ì§€í•˜ 2";
 	  			break;
-	   		case "A": floor = "ÁöÇÏ 1";
+	   		case "A": floor = "ì§€í•˜ 1";
 	   			break;
 	   		default : 
 	   			break;    			
 	   		}
 	    	
 	    	switch(object) {
-	    	case "e": object = "Ãş ¿¤¸®º£ÀÌÅÍ";
+	    	case "e": object = "ì¸µ ì—˜ë¦¬ë² ì´í„°";
 	    		break;
-	    	case "s": object = "Ãş °è´Ü";
+	    	case "s": object = "ì¸µ ê³„ë‹¨";
 	    		break;
-	    	case "t": object = "Ãş ¿¡½ºÄÃ·¹ÀÌÅÍ";
+	    	case "t": object = "ì¸µ ì—ìŠ¤ì»¬ë ˆì´í„°";
 	    		break;
-	    	case "i": object = "Ãş ±³Â÷·Î";
+	    	case "i": object = "ì¸µ êµì°¨ë¡œ";
                 break;
-            case "o": object = "Ãş ÃâÀÔ¹®";
+            case "o": object = "ì¸µ ì¶œì…ë¬¸";
                 break;
 	    	case "c":	
-	    		object = "Ãş ";
+	    		object = "ì¸µ ";
 	    		if (name.charAt(0) != 'D' || number.matches("(^[0-9]*$)")) { 
-	    			// object°¡ 'c'ÀÏ¶§ DÃş¿¡ ´ëÇØ¼­´Â °­ÀÇ½ÇÀÌ ¾ø±â ¶§¹®¿¡ µÚ¿¡ 'È£'¸¦ ºÙÀÏ ÀÌÀ¯°¡ ¾øÀ½
-	    			// È¤Àº ±× µÚ¿¡ °ªÀÌ ¼ıÀÚ ÀÎ°æ¿ì¿¡´Â ¹«Á¶°Ç °­ÀÇ½ÇÀÓ
-	    			number = number + "È£";
+	    			// objectê°€ 'c'ì¼ë•Œ Dì¸µì— ëŒ€í•´ì„œëŠ” ê°•ì˜ì‹¤ì´ ì—†ê¸° ë•Œë¬¸ì— ë’¤ì— 'í˜¸'ë¥¼ ë¶™ì¼ ì´ìœ ê°€ ì—†ìŒ
+	    			// í˜¹ì€ ê·¸ ë’¤ì— ê°’ì´ ìˆ«ì ì¸ê²½ìš°ì—ëŠ” ë¬´ì¡°ê±´ ê°•ì˜ì‹¤ì„
+	    			number = number + "í˜¸";
 	    		}
 	    		break;
 	    	}
 	    		new_facility = floor + object + number;
 				return new_facility;
-	    	}  	    	
-}
+		}
+
+			public String ReplaceR (String name) {
+				// name = floor + number (729 = 7c729, 729í˜¸ = 7c729, B101 = AcB101)
+				String new_facility;
+
+				floor = name.substring(0,1);
+
+				switch(floor){
+					case "B":
+						floor = name.substring(0,2);
+						switch(floor){
+							case "B1":
+								floor = "Ac";
+								break;
+							case "B2":
+								floor = "Bc";
+								break;
+							case "B3":
+								floor = "Cc";
+								break;
+						}
+						number = name.substring(0,4);
+						break;
+					default:
+						floor = floor.concat("c");
+						number = name.substring(0,3);
+						break;
+					}
+				
+				return new_facility = floor + number;
+			}
+} 	
