@@ -9,40 +9,40 @@ public class Replace{
 	 
 	    public String Replace(String name){        
 	    	String new_facility;
-	    	floor = name.substring(0,1);	// ì²˜ìŒ ë¬¸ìëŠ” í•­ìƒ ì¸µìˆ˜
-	    	object = name.substring(1,2);	// ì²˜ìŒ ë‹¤ìŒ ë¬¸ìëŠ” í•­ìƒ ì–´ë–¤ í˜•íƒœì¸ì§€ (ex. /e/s/t/i/c)
-	    	number = name.substring(2);		// ê·¸ ì´í›„ ë¬¸ì
+	    	floor = name.substring(0,1);	// Ã³À½ ¹®ÀÚ´Â Ç×»ó Ãş¼ö
+	    	object = name.substring(1,2);	// Ã³À½ ´ÙÀ½ ¹®ÀÚ´Â Ç×»ó ¾î¶² ÇüÅÂÀÎÁö (ex. /e/s/t/i/c)
+	    	number = name.substring(2);		// ±× ÀÌÈÄ ¹®ÀÚ
 	    	
 	    	switch(floor) {
-	    	case "D": floor = "ì§€í•˜ 4";
+	    	case "D": floor = "ÁöÇÏ 4";
 	   			break;
-	   		case "C": floor = "ì§€í•˜ 3";
+	   		case "C": floor = "ÁöÇÏ 3";
 	   			break;
-	   		case "B": floor = "ì§€í•˜ 2";
+	   		case "B": floor = "ÁöÇÏ 2";
 	  			break;
-	   		case "A": floor = "ì§€í•˜ 1";
+	   		case "A": floor = "ÁöÇÏ 1";
 	   			break;
 	   		default : 
 	   			break;    			
 	   		}
 	    	
 	    	switch(object) {
-	    	case "e": object = "ì¸µ ì—˜ë¦¬ë² ì´í„°";
+	    	case "e": object = "Ãş ¿¤¸®º£ÀÌÅÍ";
 	    		break;
-	    	case "s": object = "ì¸µ ê³„ë‹¨";
+	    	case "s": object = "Ãş °è´Ü";
 	    		break;
-	    	case "t": object = "ì¸µ ì—ìŠ¤ì»¬ë ˆì´í„°";
+	    	case "t": object = "Ãş ¿¡½ºÄÃ·¹ÀÌÅÍ";
 	    		break;
-	    	case "i": object = "ì¸µ êµì°¨ë¡œ";
+	    	case "i": object = "Ãş ±³Â÷·Î";
                 break;
-            case "o": object = "ì¸µ ì¶œì…ë¬¸";
+            case "o": object = "Ãş ÃâÀÔ¹®";
                 break;
 	    	case "c":	
-	    		object = "ì¸µ ";
+	    		object = "Ãş ";
 	    		if (name.charAt(0) != 'D' || number.matches("(^[0-9]*$)")) { 
-	    			// objectê°€ 'c'ì¼ë•Œ Dì¸µì— ëŒ€í•´ì„œëŠ” ê°•ì˜ì‹¤ì´ ì—†ê¸° ë•Œë¬¸ì— ë’¤ì— 'í˜¸'ë¥¼ ë¶™ì¼ ì´ìœ ê°€ ì—†ìŒ
-	    			// í˜¹ì€ ê·¸ ë’¤ì— ê°’ì´ ìˆ«ì ì¸ê²½ìš°ì—ëŠ” ë¬´ì¡°ê±´ ê°•ì˜ì‹¤ì„
-	    			number = number + "í˜¸";
+	    			// object°¡ 'c'ÀÏ¶§ DÃş¿¡ ´ëÇØ¼­´Â °­ÀÇ½ÇÀÌ ¾ø±â ¶§¹®¿¡ µÚ¿¡ 'È£'¸¦ ºÙÀÏ ÀÌÀ¯°¡ ¾øÀ½
+	    			// È¤Àº ±× µÚ¿¡ °ªÀÌ ¼ıÀÚ ÀÎ°æ¿ì¿¡´Â ¹«Á¶°Ç °­ÀÇ½ÇÀÓ
+	    			number = number + "È£";
 	    		}
 	    		break;
 	    	}

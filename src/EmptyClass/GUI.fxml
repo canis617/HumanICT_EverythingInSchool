@@ -17,8 +17,9 @@
         <rowConstraints>
           <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="147.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="166.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="168.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="166.0" minHeight="10.0" prefHeight="105.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="166.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Button fx:id="add_btn" mnemonicParsing="false" onAction="#add_btn" prefHeight="134.0" prefWidth="290.0" text="Add">
@@ -46,6 +47,7 @@
                   <Insets bottom="40.0" top="20.0" />
                </GridPane.margin>
             </Label>
+            <Button fx:id="emptyclass_btn" mnemonicParsing="false" onAction="#emptyclass_btn" prefHeight="82.0" prefWidth="124.0" text="Empty Class" textAlignment="CENTER" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <TableView fx:id="ClassTableView" editable="true" layoutX="14.0" layoutY="95.0" prefHeight="514.0" prefWidth="425.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="95.0">

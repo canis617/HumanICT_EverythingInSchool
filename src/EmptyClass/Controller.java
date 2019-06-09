@@ -72,6 +72,8 @@ public class Controller implements Initializable {
 	private Button del_btn;
 	@FXML
 	private Button find_path_btn;
+	@FXML
+	private Button emptyclass_btn;
 
 	ObservableList<Show_class> myList = FXCollections.observableArrayList();
 
@@ -344,47 +346,56 @@ public class Controller implements Initializable {
 		String classday = classday_label.getValue();
 		String classtime = classtime_label.getText();
 		String sql = String.format("select * from ClassInfo where building=310 order by room");
-		
-		if (classname.equals("") && (classday==null) && classtime.equals("")) {
+
+		if (classname.equals("") && (classday == null) && classtime.equals("")) {
 			System.out.println("don't have search input");
 		} else {
-			if (!classname.equals("") && (classday==null) && classtime.equals("")) { // only classname
+			if (!classname.equals("") && (classday == null) && classtime.equals("")) { // only classname
 				sql = String.format("select * from ClassInfo where building=310 and className='%s' order by room",
 						classname);
-			} else if (classname.equals("") && !(classday==null) && classtime.equals("")) { // only day
+			} else if (classname.equals("") && !(classday == null) && classtime.equals("")) { // only day
 				sql = String.format("select * from ClassInfo where building=310 and day='%s' order by room", classday);
-			} else if (classname.equals("") && (classday==null) && !classtime.equals("")) { // only classtime
+			} else if (classname.equals("") && (classday == null) && !classtime.equals("")) { // only classtime
 				sql = String.format("select * from ClassInfo where building=310 and starttime='%s' order by room",
 						classtime);
-			} else if(!classname.equals("") && !(classday==null) && classtime.equals("")) { // classname, classday
-				sql = String.format("select * from ClassInfo where building=310 and className='%s' and day='%s' order by room",
+			} else if (!classname.equals("") && !(classday == null) && classtime.equals("")) { // classname, classday
+				sql = String.format(
+						"select * from ClassInfo where building=310 and className='%s' and day='%s' order by room",
 						classname, classday);
-			} else if(!classname.equals("") && (classday==null) && !classtime.equals("")) { // classname, classtime
-				sql = String.format("select * from ClassInfo where building=310 and className='%s' and starttime='%s' order by room",
+			} else if (!classname.equals("") && (classday == null) && !classtime.equals("")) { // classname, classtime
+				sql = String.format(
+						"select * from ClassInfo where building=310 and className='%s' and starttime='%s' order by room",
 						classname, classtime);
-			} else if(classname.equals("") && !(classday==null) && !classtime.equals("")) { // classday, classtime
-				sql = String.format("select * from ClassInfo where building=310 and day='%s' and starttime='%s' order by room",
+			} else if (classname.equals("") && !(classday == null) && !classtime.equals("")) { // classday, classtime
+				sql = String.format(
+						"select * from ClassInfo where building=310 and day='%s' and starttime='%s' order by room",
 						classday, classtime);
-			} else if(!classname.equals("") && !(classday==null) && !classtime.equals("")) { // classname, classday, classtime
-				sql = String.format("select * from ClassInfo where building=310 and className='%s' and day='%s' and starttime='%s' order by room",
+			} else if (!classname.equals("") && !(classday == null) && !classtime.equals("")) { // classname, classday,
+																								// classtime
+				sql = String.format(
+						"select * from ClassInfo where building=310 and className='%s' and day='%s' and starttime='%s' order by room",
 						classname, classday, classtime);
 			}
-			
+
 			ClassInfoDB db = new ClassInfoDB();
 
 			String str = "";
 			List<Map> allClass = db.GetResultMap(sql);
-			Map<String, String> current = allClass.get(0);
 			classlist_Box.getItems().clear();
-			for (int i = 0; i < allClass.size(); i++) {
-				current = allClass.get(i);
-				for (String key : current.keySet()) {
-					String value = current.get(key);
-					// System.out.println(value + "\t\t");
-					str = str + "\t" + value;
+			if (allClass.size() == 0) {
+				classlist_Box.getItems().add("nothing");
+			} else {
+				Map<String, String> current = allClass.get(0);
+				for (int i = 0; i < allClass.size(); i++) {
+					current = allClass.get(i);
+					for (String key : current.keySet()) {
+						String value = current.get(key);
+						// System.out.println(value + "\t\t");
+						str = str + "\t" + value;
+					}
+					classlist_Box.getItems().add(str);
+					str = "";
 				}
-				classlist_Box.getItems().add(str);
-				str = "";
 			}
 		}
 	}
@@ -396,6 +407,20 @@ public class Controller implements Initializable {
 			Parent root_ = (Parent) fxmlLoader.load();
 			Stage stage = new Stage();
 			stage.setTitle("Find Path");
+			stage.setScene(new Scene(root_));
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("cannot load new window");
+		}
+	}
+	@FXML
+	void emptyclass_btn(ActionEvent event) {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmptyClass_GUI.fxml"));
+			Parent root_ = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Empty Class");
 			stage.setScene(new Scene(root_));
 			stage.show();
 		} catch (Exception e) {
