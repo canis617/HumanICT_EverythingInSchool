@@ -5,7 +5,167 @@ public class Replace{
 		private String object;
 		private String number;
 	 
-		public String Replace(String floor, String number) {
+		public String Replace_s(String floor, String number) {
+			String ob = null;
+			switch(floor) {
+			case "9":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+					break;
+				case "2":
+					ob = "층 중앙 계단";
+					break;
+				case "3":
+					ob = "층 사이드 계단";
+					break;
+				}
+				break;
+			case "8":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+					break;
+				case "2":
+					ob = "층 중앙 계단";
+					break;
+				case "3":
+					ob = "층 중앙 계단";
+					break;
+				case "4":
+					ob = "층 사이드 계단";
+					break;
+				}
+				break;
+			case "7":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+					break;
+				case "2":
+					ob = "층 중앙 계단";
+					break;
+				case "3":
+					ob = "층 사이드 계단";
+					break;
+				}
+				break;
+			case "6":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+					break;
+				case "2":
+					ob = "층 중앙 계단";
+					break;
+				case "3":
+					ob = "층 사이드 계단";
+					break;
+				}
+				break;
+			case "5":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+				case "2":
+					ob = "층 중앙 계단";
+				case "3":
+					ob = "층 사이드 계단";
+				}
+				break;
+			case "4":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+					break;
+				case "2":
+					ob = "층 중앙 계단";
+					break;
+				case "3":
+					ob = "층 중앙 계단";
+					break;
+				case "4":
+					ob = "층 사이드 계단";
+					break;
+				}
+				break;
+			case "3":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+				case "2":
+					ob = "층 중앙 계단";
+				case "3":
+					ob = "층 중앙 계단";
+				case "4":
+					ob = "층 사이드 계단";
+				}
+				break;
+			case "2":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+					break;
+				case "2":
+					ob = "층 중앙 계단";
+					break;
+				case "3":
+					ob = "층 중앙 계단";
+					break;
+				case "4":
+					ob = "층 사이드 계단";
+					break;
+				}
+				break;
+			case "1":
+				switch(number) {
+				case "1":
+					ob = "층 사이드 계단";
+					break;
+				case "2":
+					ob = "층 중앙 계단";
+					break;
+				case "3":
+					ob = "층 지하로 가는 계단";
+					break;
+				case "4":
+					ob = "층 사이드 계단";
+					break;
+				}
+				break;
+			case "지하 1":
+				switch(number) {
+				case "1":
+					ob = "층 중앙 계단";
+					break;
+				}
+				break;
+			case "지하 2":
+				switch(number) {
+				case "1":
+					ob = "층 중앙 계단";
+					break;
+				}
+				break;
+			case "지하 3":
+				switch(number) {
+				case "1":
+					ob = "층 중앙 계단";
+					break;
+				}
+				break;
+			case "지하 4":
+				switch(number) {
+				case "1":
+					ob = "층 중앙 계단";
+					break;
+				}
+				break;
+			}
+			
+			return ob;
+		}
+		public String Replace_e(String floor, String number) {
 			String ob = null;
 			switch(floor) {
 			case "9":
@@ -153,13 +313,18 @@ public class Replace{
 	    	
 	    	switch(object) {
 	    	case "e": //object = "층 엘리베이터";
-	    		Replace r = new Replace();
-	    		object = r.Replace(floor, number);
+	    		Replace r_e = new Replace();
+	    		object = r_e.Replace_e(floor, number);
 	    		number = "";
 	    		break;
-	    	case "s": object = "층 계단";
+	    	case "s": //object = "층 계단";
+	    		Replace r_s = new Replace();
+	    		object = r_s.Replace_s(floor, number);
+	    		number = "";
 	    		break;
-	    	case "t": object = "층 에스컬레이터";
+	    	case "t":
+	    		object = "층 에스컬레이터";
+	    		number = "";
 	    		break;
 	    	case "i": object = "층 교차로";
                 break;
