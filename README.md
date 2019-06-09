@@ -78,3 +78,9 @@ Give Issues or fork and pull request
 ### Library
 * MySQL 8.0.16
 * JAVAFX
+
+------------------------------------
+## To Hackers
+
+### This repository is for assignment for univ.
+* DB was already updated in a file.
