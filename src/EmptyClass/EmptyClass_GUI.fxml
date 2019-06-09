@@ -2,32 +2,34 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmptyClass.EmptyClassController">
    <children>
-      <SplitPane dividerPositions="0.19095477386934673" orientation="VERTICAL" prefHeight="400.0" prefWidth="428.0">
+      <SplitPane dividerPositions="0.19095477386934673" orientation="VERTICAL" prefHeight="400.0" prefWidth="464.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ChoiceBox fx:id="Day" layoutX="63.0" layoutY="25.0" prefHeight="22.0" prefWidth="74.0" />
-                  <ChoiceBox fx:id="Time" layoutX="213.0" layoutY="25.0" prefHeight="22.0" prefWidth="74.0" />
-                  <Text layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Day" textAlignment="CENTER" wrappingWidth="74.39999999999998" />
-                  <Text layoutX="138.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" textAlignment="CENTER" wrappingWidth="74.39999999999998" />
-                  <Button fx:id="GetPathBtn1" layoutX="310.0" layoutY="9.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="94.0" text="Get Path" />
+                  <ChoiceBox fx:id="Day" layoutX="200.0" layoutY="29.0" prefHeight="22.0" prefWidth="74.0" />
+                  <Text layoutX="138.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Day" textAlignment="CENTER" wrappingWidth="74.39999999999998" />
+                  <Text layoutX="275.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" textAlignment="CENTER" wrappingWidth="74.39999999999998" />
+                  <Text fx:id="Building" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Building" textAlignment="CENTER" wrappingWidth="74.39999999999998" />
+                  <ChoiceBox fx:id="BuildingList" layoutX="74.0" layoutY="29.0" prefHeight="22.0" prefWidth="74.0" />
+                  <TextField fx:id="Time" layoutX="338.0" layoutY="29.0" prefHeight="22.0" prefWidth="82.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextArea fx:id="EmptyClassList" prefHeight="319.0" prefWidth="294.0" />
-                  <Button fx:id="CloseBtn" layoutX="311.0" layoutY="220.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="94.0" text="Close" />
-                  <Button fx:id="GetPathBtn" layoutX="310.0" layoutY="110.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="94.0" text="Get Path" />
-                  <ChoiceBox fx:id="OrderBy" layoutX="311.0" layoutY="43.0" prefHeight="22.0" prefWidth="94.0" />
-                  <Text layoutX="311.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order by" textAlignment="CENTER" wrappingWidth="93.60001220703111" />
+                  <Button fx:id="CloseBtn" layoutX="356.0" layoutY="230.0" mnemonicParsing="false" onAction="#close_btn" prefHeight="74.0" prefWidth="94.0" text="Close" />
+                  <Button fx:id="GetPathBtn" layoutX="356.0" layoutY="104.0" mnemonicParsing="false" onAction="#find_path_btn" prefHeight="55.0" prefWidth="94.0" text="Get Path" />
+                  <ChoiceBox fx:id="OrderBy" layoutX="356.0" layoutY="187.0" prefHeight="22.0" prefWidth="94.0" />
+                  <Text layoutX="356.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order by" textAlignment="CENTER" wrappingWidth="93.60001220703111" />
+                  <Button fx:id="SearchBtn" layoutX="356.0" layoutY="14.0" mnemonicParsing="false" onAction="#search_path_btn" prefHeight="55.0" prefWidth="94.0" text="Search" />
+                  <ListView fx:id="EmptyClassList" layoutY="-1.0" prefHeight="319.0" prefWidth="322.0" />
                </children>
             </AnchorPane>
         </items>

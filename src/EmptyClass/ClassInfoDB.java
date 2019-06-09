@@ -174,6 +174,14 @@ public class ClassInfoDB {
 		return classList;
 	}
 
+	public List<Map> GetBuildingList(){
+		String sql;
+		sql = String.format(
+				"select distinct building from ClassInfo order by building");
+		List<Map> classList = GetResultMap(sql);
+		return classList;
+	}
+
 	// get student list
 	public List<Map> GetStudentList() {
 		String sql;
@@ -239,6 +247,9 @@ public class ClassInfoDB {
 	// return a-b
 	public List<Map> exceptList(List<Map> a, List<Map> b) {
 		int bCount = 0;
+		if(b.isEmpty()){
+			return a;
+		}
 		Map<String, String> compareList = b.get(bCount);
 		for (int i = 0; i < a.size(); i++) {
 			Map<String, String> current = a.get(i);
@@ -330,14 +341,15 @@ public class ClassInfoDB {
 			String sql;
 
 			// get empty class test
-			List<Map> tempList = test.GetEmptyClass(310, "mon", 12);
+			List<Map> tempList = test.GetEmptyClass(310, "sun", 15.3);
+			test.PrintListMap(tempList);
 
 			// get student's class list
 			List<Map> studentClassList = test.GetSchedule(20150101);
-			test.PrintListMap(studentClassList);
+
 
 			try {
-				test.SetSchedule(20150864, 10000, 01);
+				//test.SetSchedule(20150864, 10000, 01);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
